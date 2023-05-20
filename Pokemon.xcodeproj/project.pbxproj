@@ -13,7 +13,6 @@
 		801D533F2A18E7800067F517 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D532C2A18E7800067F517 /* Infrastructure.framework */; };
 		801D53402A18E7800067F517 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D532C2A18E7800067F517 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		801D53552A18E7C80067F517 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; };
-		801D535C2A18E7C80067F517 /* DataLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D535B2A18E7C80067F517 /* DataLayerTests.swift */; };
 		801D535D2A18E7C80067F517 /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D534F2A18E7C80067F517 /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D53602A18E7C80067F517 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; };
 		801D53612A18E7C80067F517 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -22,6 +21,11 @@
 		801D537D2A18E7DC0067F517 /* DomainLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D536F2A18E7DC0067F517 /* DomainLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D53802A18E7DC0067F517 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; };
 		801D53812A18E7DC0067F517 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		801D538A2A18E95A0067F517 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53892A18E95A0067F517 /* HTTPClient.swift */; };
+		801D538C2A18E9730067F517 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */; };
+		801D53902A18ECE60067F517 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D538F2A18ECE60067F517 /* APIRoute.swift */; };
+		801D53932A18ED490067F517 /* APIRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53922A18ED490067F517 /* APIRouteTests.swift */; };
+		801D53952A18EFE30067F517 /* DataLayerTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* ViewController.swift */; };
@@ -127,11 +131,16 @@
 		801D534D2A18E7C80067F517 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D534F2A18E7C80067F517 /* DataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLayer.h; sourceTree = "<group>"; };
 		801D53542A18E7C80067F517 /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D535B2A18E7C80067F517 /* DataLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerTests.swift; sourceTree = "<group>"; };
 		801D536D2A18E7DC0067F517 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D536F2A18E7DC0067F517 /* DomainLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainLayer.h; sourceTree = "<group>"; };
 		801D53742A18E7DC0067F517 /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D537B2A18E7DC0067F517 /* DomainLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLayerTests.swift; sourceTree = "<group>"; };
+		801D53892A18E95A0067F517 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
+		801D538F2A18ECE60067F517 /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
+		801D53912A18ED490067F517 /* DataLayerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataLayerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		801D53922A18ED490067F517 /* APIRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouteTests.swift; sourceTree = "<group>"; };
+		801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerTestsHelper.swift; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				801D532E2A18E7800067F517 /* Infrastructure.h */,
+				801D53892A18E95A0067F517 /* HTTPClient.swift */,
+				801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -229,6 +240,9 @@
 			isa = PBXGroup;
 			children = (
 				801D534F2A18E7C80067F517 /* DataLayer.h */,
+				801D538F2A18ECE60067F517 /* APIRoute.swift */,
+				801D538D2A18EC9A0067F517 /* Repository */,
+				801D538E2A18ECAC0067F517 /* Network */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -236,7 +250,9 @@
 		801D535A2A18E7C80067F517 /* DataLayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				801D535B2A18E7C80067F517 /* DataLayerTests.swift */,
+				801D53912A18ED490067F517 /* DataLayerTests-Bridging-Header.h */,
+				801D53922A18ED490067F517 /* APIRouteTests.swift */,
+				801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */,
 			);
 			path = DataLayerTests;
 			sourceTree = "<group>";
@@ -263,6 +279,20 @@
 				80F9E6792A17C62E002621EC /* ViewController.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		801D538D2A18EC9A0067F517 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		801D538E2A18ECAC0067F517 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		80F9E6692A17C62E002621EC = {
@@ -508,6 +538,7 @@
 				TargetAttributes = {
 					801D532B2A18E7800067F517 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 					801D53322A18E7800067F517 = {
 						CreatedOnToolsVersion = 14.3;
@@ -515,9 +546,11 @@
 					};
 					801D534C2A18E7C80067F517 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 					801D53532A18E7C80067F517 = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 						TestTargetID = 80F9E6712A17C62E002621EC;
 					};
 					801D536C2A18E7DC0067F517 = {
@@ -627,6 +660,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801D538A2A18E95A0067F517 /* HTTPClient.swift in Sources */,
+				801D538C2A18E9730067F517 /* URLSessionHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801D53902A18ECE60067F517 /* APIRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +685,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801D535C2A18E7C80067F517 /* DataLayerTests.swift in Sources */,
+				801D53932A18ED490067F517 /* APIRouteTests.swift in Sources */,
+				801D53952A18EFE30067F517 /* DataLayerTestsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +793,7 @@
 		801D53422A18E7800067F517 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -779,6 +817,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -789,6 +828,7 @@
 		801D53432A18E7800067F517 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -858,6 +898,7 @@
 		801D53632A18E7C80067F517 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -881,6 +922,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -891,6 +933,7 @@
 		801D53642A18E7C80067F517 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -925,6 +968,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -933,6 +977,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.DataLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DataLayerTests/DataLayerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
@@ -943,6 +989,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -951,6 +998,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.DataLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DataLayerTests/DataLayerTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
@@ -1176,6 +1224,7 @@
 		80F9E69D2A17C630002621EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -1203,6 +1252,7 @@
 		80F9E69E2A17C630002621EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
