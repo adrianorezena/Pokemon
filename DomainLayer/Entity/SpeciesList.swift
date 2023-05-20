@@ -9,8 +9,8 @@ import Foundation
 
 public struct SpeciesList: Equatable {
     public struct Species: Equatable {
-        let name: String
-        let url: String
+        public let name: String
+        public let url: String
         
         public init(name: String, url: String) {
             self.name = name

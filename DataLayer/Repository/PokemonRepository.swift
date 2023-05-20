@@ -5,17 +5,26 @@
 //  Created by Adriano Rezena on 20/05/23.
 //
 
+import DomainLayer
 import Foundation
 
-final class PokemonRepository: PokemonServiceProtocol {
+public final class PokemonRepository: PokemonRepositoryProtocol {
     let pokemonService: PokemonServiceProtocol
     
-    init(pokemonService: PokemonServiceProtocol = PokemonService()) {
+    public init(pokemonService: PokemonServiceProtocol = PokemonService()) {
         self.pokemonService = pokemonService
     }
     
-    func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error> {
-        return await pokemonService.getSpeciesList(limit: limit, offset: offset)
+    public func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesList, Error> {
+        let response = await pokemonService.getSpeciesList(limit: limit, offset: offset)
+        
+        switch response {
+        case .success(let speciesResponse):
+            return .success(speciesResponse.toSpeciesList())
+            
+        case .failure(let failure):
+            return .failure(failure)
+        }
     }
-    
+
 }

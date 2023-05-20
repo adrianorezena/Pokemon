@@ -7,14 +7,27 @@
 
 import Foundation
 
-protocol ListPokemonUseCaseProtocol {
+public protocol ListPokemonUseCaseProtocol {
+    func fetchSpecies(limit: Int, offset: Int) async -> Result<[SpeciesList.Species], Error>
 }
             
-final class ListPokemonUseCase: ListPokemonUseCaseProtocol {
+public final class ListPokemonUseCase: ListPokemonUseCaseProtocol {
     let pokemonRepository: PokemonRepositoryProtocol
     
-    init(pokemonRepository: PokemonRepositoryProtocol) {
+    public init(pokemonRepository: PokemonRepositoryProtocol) {
         self.pokemonRepository = pokemonRepository
+    }
+    
+    public func fetchSpecies(limit: Int, offset: Int) async -> Result<[SpeciesList.Species], Error> {
+        let response = await pokemonRepository.getSpeciesList(limit: limit, offset: offset)
+        
+        switch response {
+        case .success(let speciesList):
+            return .success(speciesList.results)
+            
+        case .failure(let failure):
+            return .failure(failure)
+        }
     }
     
 }

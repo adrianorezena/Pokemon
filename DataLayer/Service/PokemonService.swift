@@ -8,18 +8,18 @@
 import Infrastructure
 import Foundation
 
-protocol PokemonServiceProtocol {
+public protocol PokemonServiceProtocol: AnyObject {
     func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error>
 }
 
-final class PokemonService: PokemonServiceProtocol {
+public final class PokemonService: PokemonServiceProtocol {
     private let client: HTTPClient
         
     public init(client: HTTPClient = URLSessionHTTPClient(session: URLSession.shared)) {
         self.client = client
     }
     
-    func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error> {
+    public func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error> {
         guard let url = APIRoute.getSpeciesList(limit: limit, offset: offset).url else {
             return .failure(NSError(domain: "", code: 0))
         }
