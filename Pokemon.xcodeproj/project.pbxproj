@@ -26,6 +26,11 @@
 		801D53902A18ECE60067F517 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D538F2A18ECE60067F517 /* APIRoute.swift */; };
 		801D53932A18ED490067F517 /* APIRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53922A18ED490067F517 /* APIRouteTests.swift */; };
 		801D53952A18EFE30067F517 /* DataLayerTestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */; };
+		801D53982A19039C0067F517 /* PokemonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53972A19039C0067F517 /* PokemonService.swift */; };
+		801D539A2A190BD10067F517 /* SpeciesListResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53992A190BD10067F517 /* SpeciesListResponseMapper.swift */; };
+		801D539C2A190BE90067F517 /* SpeciesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D539B2A190BE90067F517 /* SpeciesListResponse.swift */; };
+		801D539F2A190C520067F517 /* SpeciesListMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D539E2A190C520067F517 /* SpeciesListMapperTests.swift */; };
+		801D53A12A190FB40067F517 /* SpeciesList+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53A02A190FB40067F517 /* SpeciesList+Stub.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* ViewController.swift */; };
@@ -141,6 +146,11 @@
 		801D53912A18ED490067F517 /* DataLayerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataLayerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		801D53922A18ED490067F517 /* APIRouteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouteTests.swift; sourceTree = "<group>"; };
 		801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLayerTestsHelper.swift; sourceTree = "<group>"; };
+		801D53972A19039C0067F517 /* PokemonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonService.swift; sourceTree = "<group>"; };
+		801D53992A190BD10067F517 /* SpeciesListResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesListResponseMapper.swift; sourceTree = "<group>"; };
+		801D539B2A190BE90067F517 /* SpeciesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesListResponse.swift; sourceTree = "<group>"; };
+		801D539E2A190C520067F517 /* SpeciesListMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesListMapperTests.swift; sourceTree = "<group>"; };
+		801D53A02A190FB40067F517 /* SpeciesList+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeciesList+Stub.swift"; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -242,7 +252,7 @@
 				801D534F2A18E7C80067F517 /* DataLayer.h */,
 				801D538F2A18ECE60067F517 /* APIRoute.swift */,
 				801D538D2A18EC9A0067F517 /* Repository */,
-				801D538E2A18ECAC0067F517 /* Network */,
+				801D538E2A18ECAC0067F517 /* Service */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -250,6 +260,8 @@
 		801D535A2A18E7C80067F517 /* DataLayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				801D53962A1903740067F517 /* Repository */,
+				801D539D2A190C300067F517 /* Service */,
 				801D53912A18ED490067F517 /* DataLayerTests-Bridging-Header.h */,
 				801D53922A18ED490067F517 /* APIRouteTests.swift */,
 				801D53942A18EFE30067F517 /* DataLayerTestsHelper.swift */,
@@ -288,11 +300,30 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		801D538E2A18ECAC0067F517 /* Network */ = {
+		801D538E2A18ECAC0067F517 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				801D53972A19039C0067F517 /* PokemonService.swift */,
+				801D539B2A190BE90067F517 /* SpeciesListResponse.swift */,
+				801D53992A190BD10067F517 /* SpeciesListResponseMapper.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		801D53962A1903740067F517 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Network;
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		801D539D2A190C300067F517 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				801D539E2A190C520067F517 /* SpeciesListMapperTests.swift */,
+				801D53A02A190FB40067F517 /* SpeciesList+Stub.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		80F9E6692A17C62E002621EC = {
@@ -677,7 +708,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801D539C2A190BE90067F517 /* SpeciesListResponse.swift in Sources */,
 				801D53902A18ECE60067F517 /* APIRoute.swift in Sources */,
+				801D53982A19039C0067F517 /* PokemonService.swift in Sources */,
+				801D539A2A190BD10067F517 /* SpeciesListResponseMapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +719,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				801D539F2A190C520067F517 /* SpeciesListMapperTests.swift in Sources */,
 				801D53932A18ED490067F517 /* APIRouteTests.swift in Sources */,
+				801D53A12A190FB40067F517 /* SpeciesList+Stub.swift in Sources */,
 				801D53952A18EFE30067F517 /* DataLayerTestsHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
