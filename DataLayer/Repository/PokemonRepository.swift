@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol PokemonRepositoryProtocol: AnyObject {
-    func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error>
-}
-
 final class PokemonRepository: PokemonServiceProtocol {
     let pokemonService: PokemonServiceProtocol
     
