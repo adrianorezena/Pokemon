@@ -51,6 +51,39 @@
                ReferencedContainer = "container:Pokemon.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "801D53322A18E7800067F517"
+               BuildableName = "InfrastructureTests.xctest"
+               BlueprintName = "InfrastructureTests"
+               ReferencedContainer = "container:Pokemon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "801D53532A18E7C80067F517"
+               BuildableName = "DataLayerTests.xctest"
+               BlueprintName = "DataLayerTests"
+               ReferencedContainer = "container:Pokemon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "801D53732A18E7DC0067F517"
+               BuildableName = "DomainLayerTests.xctest"
+               BlueprintName = "DomainLayerTests"
+               ReferencedContainer = "container:Pokemon.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
