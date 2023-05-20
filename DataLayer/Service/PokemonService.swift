@@ -15,7 +15,7 @@ protocol PokemonServiceProtocol {
 final class PokemonService: PokemonServiceProtocol {
     private let client: HTTPClient
         
-    public init(client: HTTPClient) {
+    public init(client: HTTPClient = URLSessionHTTPClient(session: URLSession.shared)) {
         self.client = client
     }
     
