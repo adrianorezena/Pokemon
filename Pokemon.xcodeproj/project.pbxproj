@@ -392,10 +392,8 @@
 		801D538E2A18ECAC0067F517 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				806670752A1AC6860014C1AB /* Mapper */,
 				801D53972A19039C0067F517 /* PokemonService.swift */,
-				801D53992A190BD10067F517 /* SpeciesListResponseMapper.swift */,
-				806670602A1AABC00014C1AB /* EvolutionResponseMapper.swift */,
-				8066706B2A1ABCA80014C1AB /* SpeciesDetailResponseMapper.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -411,9 +409,7 @@
 		801D539D2A190C300067F517 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				801D539E2A190C520067F517 /* SpeciesListMapperTests.swift */,
-				8066705E2A1A937D0014C1AB /* EvolutionResponseMapperTests.swift */,
-				8066706D2A1ABE420014C1AB /* SpeciesDetailResponseMapperTests.swift */,
+				806670762A1AC6960014C1AB /* Mapper */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -509,6 +505,26 @@
 				806670692A1ABB350014C1AB /* EvolutionChainResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		806670752A1AC6860014C1AB /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				801D53992A190BD10067F517 /* SpeciesListResponseMapper.swift */,
+				806670602A1AABC00014C1AB /* EvolutionResponseMapper.swift */,
+				8066706B2A1ABCA80014C1AB /* SpeciesDetailResponseMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		806670762A1AC6960014C1AB /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				801D539E2A190C520067F517 /* SpeciesListMapperTests.swift */,
+				8066705E2A1A937D0014C1AB /* EvolutionResponseMapperTests.swift */,
+				8066706D2A1ABE420014C1AB /* SpeciesDetailResponseMapperTests.swift */,
+			);
+			path = Mapper;
 			sourceTree = "<group>";
 		};
 		80F9E6692A17C62E002621EC = {
