@@ -10,6 +10,7 @@ import Foundation
 
 protocol HomeViewModelProtocol: AnyObject {
     var species: [Species] { get set }
+    var fetchError: String? { get set }
     func fetchSpecies(completion: @escaping () -> Void)
 }
 

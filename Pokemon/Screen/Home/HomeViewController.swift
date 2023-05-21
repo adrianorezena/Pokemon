@@ -23,6 +23,16 @@ final class HomeViewController: UIViewController {
         return tableView
     }()
     
+    private let errorLabel: UILabel = {
+        let label: UILabel = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        label.font = .boldSystemFont(ofSize: 16)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
+    
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -35,6 +45,7 @@ final class HomeViewController: UIViewController {
     private func setupViews() {
         navigationItem.title = "Pokemon List"
         setupTableView()
+        setupErrorLabel()
     }
     
     private func setupTableView() {
@@ -51,12 +62,28 @@ final class HomeViewController: UIViewController {
         tableView.delegate = self
     }
     
+    private func setupErrorLabel() {
+        view.addSubview(errorLabel)
+        
+        NSLayoutConstraint.activate([
+            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         
         viewModel.fetchSpecies { [weak self] in
+            self?.errorLabel.text = ""
+            
+            if let fetchError = self?.viewModel.fetchError {
+                self?.errorLabel.text = fetchError
+            }
+            
             self?.tableView.reloadData()
         }
     }
