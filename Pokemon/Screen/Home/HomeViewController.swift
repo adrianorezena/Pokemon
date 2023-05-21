@@ -67,7 +67,7 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
         let species = viewModel.species[indexPath.row]
         cell.nameLabel.text = species.name
-        cell.pokemonImageView.image = UIImage(systemName: "person")
+        cell.pokemonImageView.setImage(urlString: species.imageURL)
         return cell
     }
     

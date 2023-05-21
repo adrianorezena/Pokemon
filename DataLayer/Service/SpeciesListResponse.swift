@@ -26,16 +26,26 @@ extension SpeciesListResponse {
             count: count,
             next: next,
             previous: previous,
-            results: results.map { $0.toSpecies() }
+            results: results.enumerated().map { index, element in
+                return element.toSpecies(id: String(index + 1))
+            }
         )
     }
 }
 
 extension SpeciesListResponse.SpeciesResponse {
-    public func toSpecies() -> SpeciesList.Species {
-        SpeciesList.Species(
+    public func toSpecies(id: String? = nil) -> SpeciesList.Species {
+        let imageFormat: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%@.png"
+        var imageURL: String? = nil
+        
+        if let id: String = id {
+            imageURL = String(format: imageFormat, id)
+        }
+        
+        return SpeciesList.Species(
             name: name,
-            url: url
+            url: url,
+            imageURL: imageURL
         )
     }
 }

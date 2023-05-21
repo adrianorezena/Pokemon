@@ -14,9 +14,12 @@ final class AsyncImageView: UIImageView {
         self.kf.setImage(with: url)
     }
     
-    func setImage(urlString: String) {
-        let url: URL? = URL(string: urlString)
-        self.kf.setImage(with: url)
+    func setImage(urlString: String?) {
+        if let urlString = urlString, let url: URL = URL(string: urlString) {
+            self.kf.setImage(with: url)
+        } else {
+            self.image = nil
+        }
     }
     
 }

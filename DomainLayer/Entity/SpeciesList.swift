@@ -11,10 +11,12 @@ public struct SpeciesList: Equatable {
     public struct Species: Equatable {
         public let name: String
         public let url: String
+        public let imageURL: String?
         
-        public init(name: String, url: String) {
+        public init(name: String, url: String, imageURL: String? = nil) {
             self.name = name
             self.url = url
+            self.imageURL = imageURL
         }
     }
     
