@@ -22,13 +22,38 @@ public struct SpeciesListResponse: Codable, Equatable {
 
 extension SpeciesListResponse {
     func toSpeciesList() -> SpeciesList {
-        SpeciesList(
+        var nextLimit: Int?
+        var nextOffset: Int?
+        
+        if let next: String = next, let pagination = getLimitOffset(next) {
+            nextLimit = pagination.limit
+            nextOffset = pagination.offset
+        }
+        
+        return SpeciesList(
             count: count,
-            next: next,
+            nextLimit: nextLimit,
+            nextOffset: nextOffset,
             results: results.enumerated().map { index, element in
                 return element.toSpecies(id: String(index + 1))
             }
         )
+    }
+    
+    private func getLimitOffset(_ urlString: String) -> (limit: Int, offset: Int)? {
+        guard
+            let url = URL(string: urlString),
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
+            let queryItems = components.queryItems
+        else {
+            return nil
+        }
+
+        // TODO: move this logic to the object mapping and return as a new property
+        let limit = Int(queryItems.first(where: { $0.name == "limit" })?.value ?? "0") ?? 0
+        let offset = Int(queryItems.first(where: { $0.name == "offset" })?.value ?? "0") ?? 0
+        
+        return (limit, offset)
     }
 }
 
@@ -40,3 +65,6 @@ extension SpeciesListResponse.SpeciesResponse {
         )
     }
 }
+
+
+

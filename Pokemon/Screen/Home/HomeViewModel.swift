@@ -35,11 +35,9 @@ final class HomeViewModel: HomeViewModelProtocol {
                     } else {
                         self?.species.append(contentsOf: speciesList.results)
                     }
-                    
-                    if let nextPage: String = speciesList.next, let pagination = self?.getLimitOffset(nextPage) {
-                        self?.limit = pagination.limit
-                        self?.offset = pagination.offset
-                    }
+
+                    self?.limit = speciesList.nextLimit ?? 0
+                    self?.offset = speciesList.nextOffset ?? 0
                     
                 case .failure(let failure):
                     self?.fetchError = failure.localizedDescription
@@ -48,21 +46,5 @@ final class HomeViewModel: HomeViewModelProtocol {
                 completion()
             }
         }
-    }
-    
-    private func getLimitOffset(_ urlString: String) -> (limit: Int, offset: Int)? {
-        guard
-            let url = URL(string: urlString),
-            let components = URLComponents(url: url, resolvingAgainstBaseURL: true),
-            let queryItems = components.queryItems
-        else {
-            return nil
-        }
-    
-        // TODO: move this logic to the object mapping and return as a new property
-        let limit = Int(queryItems.first(where: { $0.name == "limit" })?.value ?? "0") ?? 0
-        let offset = Int(queryItems.first(where: { $0.name == "offset" })?.value ?? "0") ?? 0
-        
-        return (limit, offset)
     }
 }

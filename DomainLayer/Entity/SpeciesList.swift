@@ -19,12 +19,14 @@ public struct SpeciesList: Equatable {
     }
     
     public let count: Int
-    public let next: String?
+    public let nextLimit: Int?
+    public let nextOffset: Int?
     public let results: [Species]
     
-    public init(count: Int, next: String?, results: [Species]) {
+    public init(count: Int, nextLimit: Int?, nextOffset: Int?, results: [Species]) {
         self.count = count
-        self.next = next
+        self.nextLimit = nextLimit
+        self.nextOffset = nextOffset
         self.results = results
     }
 }

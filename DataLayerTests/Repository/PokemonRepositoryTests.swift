@@ -17,7 +17,8 @@ final class PokemonRepositoryTests: XCTestCase {
         switch response {
         case .success(let speciesList):
             XCTAssertEqual(speciesList.count, 1010)
-            XCTAssertEqual(speciesList.next, "https://pokeapi.co/api/v2/pokemon-species?offset=5&limit=5")
+            XCTAssertEqual(speciesList.nextLimit, 5)
+            XCTAssertEqual(speciesList.nextOffset, 5)
             XCTAssertEqual(speciesList.results.count, 5)
             
         case .failure(let failure):
