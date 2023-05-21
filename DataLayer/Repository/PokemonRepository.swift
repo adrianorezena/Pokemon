@@ -34,7 +34,7 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         case .success(let species):
             var speciesArray: [SpeciesResponse] = []
             speciesArray.append(species.chain.species)
-            speciesArray.append(contentsOf: extractEvolution(from: species.chain.evolvesTo))
+            speciesArray.append(contentsOf: extractBaseEvolution(from: species.chain.evolvesTo))
             
             return .success(speciesArray.map { $0.toSpecies() })
 
@@ -57,12 +57,23 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
     }
     
     // MARK: - Helper
-    private func extractEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
+    private func extractBaseEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
+        var extractedObjects: [SpeciesResponse] = []
+        
+        if let object = objects.first {
+            extractedObjects.append(object.species)
+            extractedObjects += object.evolvesTo.map { $0.species }
+        }
+        
+        return extractedObjects
+    }
+        
+    private func extractFullEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
         var extractedObjects: [SpeciesResponse] = []
         
         for object in objects {
             extractedObjects.append(object.species)
-            extractedObjects += extractEvolution(from: object.evolvesTo)
+            extractedObjects += extractFullEvolution(from: object.evolvesTo)
         }
         
         return extractedObjects
