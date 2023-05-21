@@ -37,6 +37,7 @@
 		801D53AA2A194DA90067F517 /* SpeciesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53A92A194DA90067F517 /* SpeciesList.swift */; };
 		801D53AD2A1954250067F517 /* PokemonRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53AC2A1954250067F517 /* PokemonRepositoryProtocol.swift */; };
 		801D53B12A1971640067F517 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53B02A1971640067F517 /* HomeViewModel.swift */; };
+		801D53B32A1973320067F517 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53B22A1973320067F517 /* HomeCell.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
@@ -163,6 +164,7 @@
 		801D53A92A194DA90067F517 /* SpeciesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesList.swift; sourceTree = "<group>"; };
 		801D53AC2A1954250067F517 /* PokemonRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonRepositoryProtocol.swift; sourceTree = "<group>"; };
 		801D53B02A1971640067F517 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		801D53B22A1973320067F517 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 			children = (
 				80F9E6792A17C62E002621EC /* HomeViewController.swift */,
 				801D53B02A1971640067F517 /* HomeViewModel.swift */,
+				801D53B22A1973320067F517 /* HomeCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -805,6 +808,7 @@
 				80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */,
 				80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */,
 				801D53B12A1971640067F517 /* HomeViewModel.swift in Sources */,
+				801D53B32A1973320067F517 /* HomeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

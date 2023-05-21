@@ -12,9 +12,13 @@ final class HomeViewController: UIViewController {
     let viewModel: HomeViewModelProtocol
     
     private let tableView: UITableView = {
+        let cellPadding: CGFloat = 16
+        let cellHeight: CGFloat = 40
+        
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-//        tableView.register(ListCell.self, forCellReuseIdentifier: ListCell.reuseIdentifier)
+        tableView.rowHeight = cellHeight + cellPadding + cellPadding
+        tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.reuseIdentifier)
         return tableView
     }()
     
@@ -60,11 +64,10 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
         let species = viewModel.species[indexPath.row]
-        cell.textLabel?.text = species.name
-        cell.textLabel?.textColor = .blue
-        
+        cell.nameLabel.text = species.name
+        cell.pokemonImageView.image = UIImage(systemName: "person")
         return cell
     }
     
