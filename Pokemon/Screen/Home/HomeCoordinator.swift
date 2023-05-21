@@ -6,6 +6,7 @@
 //
 
 import DataLayer
+import DomainLayer
 import UIKit
 
 final class HomeCoordinator: Coordinator {
@@ -22,5 +23,11 @@ final class HomeCoordinator: Coordinator {
         let vc = HomeViewController(viewModel: vm)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func openDetails(species: SpeciesList.Species, imageURL: String?) {
+        let vm: DetailViewModel = DetailViewModel(species: species, imageURL: imageURL)
+        let vc: DetailViewController = DetailViewController(viewModel: vm)
+        navigationController.pushViewController(vc, animated: true)
     }
 }
