@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "801D532B2A18E7800067F517"
-               BuildableName = "Infrastructure.framework"
-               BlueprintName = "Infrastructure"
+               BlueprintIdentifier = "801D534C2A18E7C80067F517"
+               BuildableName = "DataLayer.framework"
+               BlueprintName = "DataLayer"
                ReferencedContainer = "container:Pokemon.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:Infrastructure/Infrastructure.xctestplan"
+            reference = "container:DataLayer/DataLayer.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
@@ -54,9 +54,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "801D532B2A18E7800067F517"
-            BuildableName = "Infrastructure.framework"
-            BlueprintName = "Infrastructure"
+            BlueprintIdentifier = "801D534C2A18E7C80067F517"
+            BuildableName = "DataLayer.framework"
+            BlueprintName = "DataLayer"
             ReferencedContainer = "container:Pokemon.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

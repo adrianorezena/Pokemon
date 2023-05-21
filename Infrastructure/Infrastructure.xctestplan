@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "5A6E6F9A-0A85-43C7-ACB8-32C829A5B125",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "801D532B2A18E7800067F517",
+          "name" : "Infrastructure"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pokemon.xcodeproj",
+        "identifier" : "801D53322A18E7800067F517",
+        "name" : "InfrastructureTests"
+      }
+    }
+  ],
+  "version" : 1
+}

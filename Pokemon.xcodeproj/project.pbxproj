@@ -40,6 +40,7 @@
 		806670332A1A37340014C1AB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 806670322A1A37340014C1AB /* Kingfisher */; };
 		806670362A1A3DAF0014C1AB /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670352A1A3DAF0014C1AB /* AsyncImageView.swift */; };
 		8066703A2A1A4F460014C1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670392A1A4F460014C1AB /* Constants.swift */; };
+		8066704D2A1A65280014C1AB /* ListPokemonUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
@@ -112,6 +113,27 @@
 			remoteGlobalIDString = 801D536C2A18E7DC0067F517;
 			remoteInfo = DomainLayer;
 		};
+		806670402A1A606D0014C1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F9E66A2A17C62E002621EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 801D534C2A18E7C80067F517;
+			remoteInfo = DataLayer;
+		};
+		806670422A1A606D0014C1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F9E66A2A17C62E002621EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 801D536C2A18E7DC0067F517;
+			remoteInfo = DomainLayer;
+		};
+		806670442A1A606D0014C1AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 80F9E66A2A17C62E002621EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 801D532B2A18E7800067F517;
+			remoteInfo = Infrastructure;
+		};
 		80F9E6892A17C630002621EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 80F9E66A2A17C62E002621EC /* Project object */;
@@ -168,6 +190,12 @@
 		801D53B22A1973320067F517 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		806670352A1A3DAF0014C1AB /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		806670392A1A4F460014C1AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		806670462A1A60DE0014C1AB /* Infrastructure.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Infrastructure.xctestplan; sourceTree = "<group>"; };
+		806670472A1A61980014C1AB /* DataLayer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataLayer.xctestplan; sourceTree = "<group>"; };
+		806670482A1A624B0014C1AB /* DomainLayer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DomainLayer.xctestplan; sourceTree = "<group>"; };
+		806670492A1A64060014C1AB /* Pokemon.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pokemon.xctestplan; sourceTree = "<group>"; };
+		8066704B2A1A65270014C1AB /* DomainLayerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainLayerTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPokemonUseCaseTests.swift; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +277,7 @@
 		801D532D2A18E7800067F517 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				806670462A1A60DE0014C1AB /* Infrastructure.xctestplan */,
 				801D532E2A18E7800067F517 /* Infrastructure.h */,
 				801D53892A18E95A0067F517 /* HTTPClient.swift */,
 				801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */,
@@ -267,6 +296,7 @@
 		801D534E2A18E7C80067F517 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				806670472A1A61980014C1AB /* DataLayer.xctestplan */,
 				801D534F2A18E7C80067F517 /* DataLayer.h */,
 				801D538F2A18ECE60067F517 /* APIRoute.swift */,
 				801D538D2A18EC9A0067F517 /* Repository */,
@@ -290,6 +320,7 @@
 		801D536E2A18E7DC0067F517 /* DomainLayer */ = {
 			isa = PBXGroup;
 			children = (
+				806670482A1A624B0014C1AB /* DomainLayer.xctestplan */,
 				801D53A82A194D990067F517 /* Entity */,
 				801D53AB2A1954040067F517 /* Repository */,
 				801D536F2A18E7DC0067F517 /* DomainLayer.h */,
@@ -301,6 +332,8 @@
 		801D537A2A18E7DC0067F517 /* DomainLayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				8066704B2A1A65270014C1AB /* DomainLayerTests-Bridging-Header.h */,
+				8066704A2A1A65100014C1AB /* UseCases */,
 			);
 			path = DomainLayerTests;
 			sourceTree = "<group>";
@@ -398,6 +431,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		8066704A2A1A65100014C1AB /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
 		80F9E6692A17C62E002621EC = {
 			isa = PBXGroup;
 			children = (
@@ -431,6 +472,7 @@
 		80F9E6742A17C62E002621EC /* Pokemon */ = {
 			isa = PBXGroup;
 			children = (
+				806670492A1A64060014C1AB /* Pokemon.xctestplan */,
 				80F9E6752A17C62E002621EC /* AppDelegate.swift */,
 				80F9E6772A17C62E002621EC /* SceneDelegate.swift */,
 				80F9E67E2A17C62F002621EC /* Assets.xcassets */,
@@ -627,6 +669,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				806670412A1A606D0014C1AB /* PBXTargetDependency */,
+				806670432A1A606D0014C1AB /* PBXTargetDependency */,
+				806670452A1A606D0014C1AB /* PBXTargetDependency */,
 				80F9E68A2A17C630002621EC /* PBXTargetDependency */,
 			);
 			name = PokemonTests;
@@ -650,7 +695,6 @@
 					};
 					801D53322A18E7800067F517 = {
 						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 80F9E6712A17C62E002621EC;
 					};
 					801D534C2A18E7C80067F517 = {
 						CreatedOnToolsVersion = 14.3;
@@ -659,7 +703,6 @@
 					801D53532A18E7C80067F517 = {
 						CreatedOnToolsVersion = 14.3;
 						LastSwiftMigration = 1430;
-						TestTargetID = 80F9E6712A17C62E002621EC;
 					};
 					801D536C2A18E7DC0067F517 = {
 						CreatedOnToolsVersion = 14.3;
@@ -667,7 +710,7 @@
 					};
 					801D53732A18E7DC0067F517 = {
 						CreatedOnToolsVersion = 14.3;
-						TestTargetID = 80F9E6712A17C62E002621EC;
+						LastSwiftMigration = 1430;
 					};
 					80F9E6712A17C62E002621EC = {
 						CreatedOnToolsVersion = 14.3;
@@ -823,6 +866,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8066704D2A1A65280014C1AB /* ListPokemonUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -895,6 +939,21 @@
 			isa = PBXTargetDependency;
 			target = 801D536C2A18E7DC0067F517 /* DomainLayer */;
 			targetProxy = 801D537E2A18E7DC0067F517 /* PBXContainerItemProxy */;
+		};
+		806670412A1A606D0014C1AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 801D534C2A18E7C80067F517 /* DataLayer */;
+			targetProxy = 806670402A1A606D0014C1AB /* PBXContainerItemProxy */;
+		};
+		806670432A1A606D0014C1AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 801D536C2A18E7DC0067F517 /* DomainLayer */;
+			targetProxy = 806670422A1A606D0014C1AB /* PBXContainerItemProxy */;
+		};
+		806670452A1A606D0014C1AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 801D532B2A18E7800067F517 /* Infrastructure */;
+			targetProxy = 806670442A1A606D0014C1AB /* PBXContainerItemProxy */;
 		};
 		80F9E68A2A17C630002621EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -998,7 +1057,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Debug;
 		};
@@ -1016,7 +1074,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Release;
 		};
@@ -1106,7 +1163,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Debug;
 		};
@@ -1126,7 +1182,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "DataLayerTests/DataLayerTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Release;
 		};
@@ -1203,6 +1258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -1211,9 +1267,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.DomainLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DomainLayerTests/DomainLayerTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Debug;
 		};
@@ -1221,6 +1278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -1229,9 +1287,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.DomainLayerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "DomainLayerTests/DomainLayerTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
 			};
 			name = Release;
 		};

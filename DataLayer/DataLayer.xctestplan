@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "CD692830-3C36-4ACC-B1BC-BD991790B4FD",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "801D534C2A18E7C80067F517",
+          "name" : "DataLayer"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Pokemon.xcodeproj",
+        "identifier" : "801D53532A18E7C80067F517",
+        "name" : "DataLayerTests"
+      }
+    }
+  ],
+  "version" : 1
+}
