@@ -34,7 +34,6 @@ final class DetailViewModel: DetailViewModelProtocol {
                 switch response {
                 case .success(let species):
                     self?.evolution = species
-                    debugPrint("Evolution of \(self?.species.id) - \(self?.species.name) -> \(species.map { $0.name })")
                     
                 case .failure(let failure):
                     self?.fetchError = failure.localizedDescription
