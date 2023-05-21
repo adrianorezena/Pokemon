@@ -25,7 +25,6 @@ extension SpeciesListResponse {
         SpeciesList(
             count: count,
             next: next,
-            previous: previous,
             results: results.enumerated().map { index, element in
                 return element.toSpecies(id: String(index + 1))
             }

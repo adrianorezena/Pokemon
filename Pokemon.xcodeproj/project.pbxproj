@@ -17,7 +17,6 @@
 		801D53602A18E7C80067F517 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; };
 		801D53612A18E7C80067F517 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		801D53752A18E7DC0067F517 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; };
-		801D537C2A18E7DC0067F517 /* DomainLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D537B2A18E7DC0067F517 /* DomainLayerTests.swift */; };
 		801D537D2A18E7DC0067F517 /* DomainLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D536F2A18E7DC0067F517 /* DomainLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D53802A18E7DC0067F517 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; };
 		801D53812A18E7DC0067F517 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -149,7 +148,6 @@
 		801D536D2A18E7DC0067F517 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D536F2A18E7DC0067F517 /* DomainLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainLayer.h; sourceTree = "<group>"; };
 		801D53742A18E7DC0067F517 /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D537B2A18E7DC0067F517 /* DomainLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainLayerTests.swift; sourceTree = "<group>"; };
 		801D53892A18E95A0067F517 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		801D538F2A18ECE60067F517 /* APIRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
@@ -303,7 +301,6 @@
 		801D537A2A18E7DC0067F517 /* DomainLayerTests */ = {
 			isa = PBXGroup;
 			children = (
-				801D537B2A18E7DC0067F517 /* DomainLayerTests.swift */,
 			);
 			path = DomainLayerTests;
 			sourceTree = "<group>";
@@ -826,7 +823,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801D537C2A18E7DC0067F517 /* DomainLayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

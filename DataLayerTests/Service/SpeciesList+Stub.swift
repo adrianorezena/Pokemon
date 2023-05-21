@@ -8,7 +8,7 @@
 @testable import DataLayer
 import Foundation
 
-struct SpeciesListStub {
+struct SpeciesListResponseStub {
     
     static func asData() -> Data {
         let json: String =

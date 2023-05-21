@@ -11,12 +11,14 @@ import XCTest
 final class PokemonRepositoryTests: XCTestCase {
     
     func test_getSpeciesList_succeedOnServiceResponse() async {
-        let sut: PokemonRepository = makeSUT(response: .success(SpeciesListStub.asObject()))
+        let sut: PokemonRepository = makeSUT(response: .success(SpeciesListResponseStub.asObject()))
         let response = await sut.getSpeciesList(limit: 10, offset: 0)
         
         switch response {
         case .success(let speciesList):
-            XCTAssertEqual(speciesList, SpeciesListStub.asObject())
+            XCTAssertEqual(speciesList.count, 1010)
+            XCTAssertEqual(speciesList.next, "https://pokeapi.co/api/v2/pokemon-species?offset=5&limit=5")
+            XCTAssertEqual(speciesList.results.count, 5)
             
         case .failure(let failure):
             XCTFail("Expected success, got \(failure) instead")

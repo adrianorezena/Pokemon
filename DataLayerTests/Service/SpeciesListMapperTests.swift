@@ -19,9 +19,9 @@ final class SpeciesListMapperTests: XCTestCase {
     }
     
     func test_map_returnsSpeciesListOnValidData() {
-        let stubbedData = SpeciesListStub.asData()
+        let stubbedData = SpeciesListResponseStub.asData()
         let speciesList = try? SpeciesListResponseMapper.map(stubbedData)
-        XCTAssertEqual(speciesList, SpeciesListStub.asObject())
+        XCTAssertEqual(speciesList, SpeciesListResponseStub.asObject())
     }
 
 }
