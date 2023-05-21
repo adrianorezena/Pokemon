@@ -45,7 +45,6 @@
 		806670542A1A78710014C1AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670532A1A78710014C1AB /* DetailViewController.swift */; };
 		806670562A1A789B0014C1AB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670552A1A789B0014C1AB /* DetailViewModel.swift */; };
 		806670582A1A8AC40014C1AB /* EvolutionPokemonUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670572A1A8AC30014C1AB /* EvolutionPokemonUseCase.swift */; };
-		8066705A2A1A8C570014C1AB /* EvolutionDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670592A1A8C570014C1AB /* EvolutionDetailResponse.swift */; };
 		8066705C2A1A932F0014C1AB /* EvolutionResponse+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066705B2A1A932F0014C1AB /* EvolutionResponse+Stub.swift */; };
 		8066705F2A1A937D0014C1AB /* EvolutionResponseMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066705E2A1A937D0014C1AB /* EvolutionResponseMapperTests.swift */; };
 		806670612A1AABC00014C1AB /* EvolutionResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670602A1AABC00014C1AB /* EvolutionResponseMapper.swift */; };
@@ -211,7 +210,6 @@
 		806670532A1A78710014C1AB /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		806670552A1A789B0014C1AB /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		806670572A1A8AC30014C1AB /* EvolutionPokemonUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionPokemonUseCase.swift; sourceTree = "<group>"; };
-		806670592A1A8C570014C1AB /* EvolutionDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionDetailResponse.swift; sourceTree = "<group>"; };
 		8066705B2A1A932F0014C1AB /* EvolutionResponse+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EvolutionResponse+Stub.swift"; sourceTree = "<group>"; };
 		8066705E2A1A937D0014C1AB /* EvolutionResponseMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionResponseMapperTests.swift; sourceTree = "<group>"; };
 		806670602A1AABC00014C1AB /* EvolutionResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionResponseMapper.swift; sourceTree = "<group>"; };
@@ -488,7 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				801D539B2A190BE90067F517 /* SpeciesListResponse.swift */,
-				806670592A1A8C570014C1AB /* EvolutionDetailResponse.swift */,
 				806670632A1AAF950014C1AB /* EvolutionResponse.swift */,
 				806670652A1AAFB80014C1AB /* ChainResponse.swift */,
 				806670672A1AB0110014C1AB /* SpeciesResponse.swift */,
@@ -890,7 +887,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				806670612A1AABC00014C1AB /* EvolutionResponseMapper.swift in Sources */,
-				8066705A2A1A8C570014C1AB /* EvolutionDetailResponse.swift in Sources */,
 				801D539C2A190BE90067F517 /* SpeciesListResponse.swift in Sources */,
 				806670682A1AB0110014C1AB /* SpeciesResponse.swift in Sources */,
 				801D53A32A1913B90067F517 /* PokemonRepository.swift in Sources */,

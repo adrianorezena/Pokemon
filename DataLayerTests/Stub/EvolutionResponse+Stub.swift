@@ -21,51 +21,23 @@ struct EvolutionResponseStub {
     static func asObject() -> EvolutionResponse {
         EvolutionResponse(
             chain: ChainResponse(
-                evolutionDetails: [],
                 evolvesTo: [
                     ChainResponse(
-                        evolutionDetails: [
-                            EvolutionDetailResponse(
-                                minLevel: 16,
-                                needsOverworldRain: false,
-                                timeOfDay: "",
-                                trigger: SpeciesResponse(
-                                    name: "level-up",
-                                    url: "https://pokeapi.co/api/v2/evolution-trigger/1/"
-                                ),
-                                turnUpsideDown: false
-                            )
-                        ],
                         evolvesTo: [
                             ChainResponse(
-                                evolutionDetails: [
-                                    EvolutionDetailResponse(
-                                        minLevel: 32,
-                                        needsOverworldRain: false,
-                                        timeOfDay: "",
-                                        trigger: SpeciesResponse(
-                                            name: "level-up",
-                                            url: "https://pokeapi.co/api/v2/evolution-trigger/1/"
-                                        ),
-                                        turnUpsideDown: false
-                                    )
-                                ],
                                 evolvesTo: [],
-                                isBaby: false,
                                 species: SpeciesResponse(
                                     name: "venusaur",
                                     url: "https://pokeapi.co/api/v2/pokemon-species/3/"
                                 )
                             )
                         ],
-                        isBaby: false,
                         species: SpeciesResponse(
                             name: "ivysaur",
                             url: "https://pokeapi.co/api/v2/pokemon-species/2/"
                         )
                     )
                 ],
-                isBaby: false,
                 species: SpeciesResponse(
                     name: "bulbasaur",
                     url: "https://pokeapi.co/api/v2/pokemon-species/1/"
