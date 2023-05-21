@@ -20,14 +20,7 @@ public final class EvolutionPokemonUseCase: EvolutionPokemonUseCaseProtocol {
     
     public func fetchEvolution(id: String) async -> Result<[Species], Error> {
         let response = await pokemonRepository.fetchEvolution(id: id)
-        
-        switch response {
-        case .success(let species):
-            return .success(species)
-            
-        case .failure(let failure):
-            return .failure(failure)
-        }
+        return response
     }
     
 }
