@@ -42,6 +42,7 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Setup
     private func setupViews() {
         navigationItem.title = "Pokemon List"
         setupTableView()
@@ -72,6 +73,7 @@ final class HomeViewController: UIViewController {
         ])
     }
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,6 +89,7 @@ final class HomeViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
+
 }
 
 // MARK: - UITableViewDataSource

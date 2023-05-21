@@ -25,6 +25,8 @@ class HomeCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        
+        setupView()
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -34,6 +36,8 @@ class HomeCell: UITableViewCell {
     }
     
     private func setupView() {
+        selectionStyle = .none
+        
         addSubview(pokemonImageView)
         NSLayoutConstraint.activate([
             pokemonImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
