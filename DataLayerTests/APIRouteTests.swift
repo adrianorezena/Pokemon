@@ -21,8 +21,8 @@ final class APIRouteTests: XCTestCase {
     }
     
     func test_getEvolutionChain_returnsRightURL() {
-        let sut = APIRoute.getEvolutionChain(anyURL())
-        XCTAssertEqual(sut.url?.absoluteString, anyURL().absoluteString)
+        let sut = APIRoute.getEvolutionChain(id: "1")
+        XCTAssertEqual(sut.url?.absoluteString, "https://pokeapi.co/api/v2/evolution-chain/1")
     }
 
 }

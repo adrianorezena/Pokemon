@@ -7,18 +7,24 @@
 
 import Foundation
 
+struct APIRouteError: Error {}
+
 enum APIRoute {
     case getSpeciesList(limit: Int, offset: Int)
     case getSpecies(URL)
-    case getEvolutionChain(URL)
+    case getEvolutionChain(id: String)
 
     private var baseURLString: String { "https://pokeapi.co/api/v2/" }
 
     var url: URL? {
         switch self {
-        case .getSpecies(let url),
-                .getEvolutionChain(let url):
+        case .getSpecies(let url):
             return url
+            
+        case .getEvolutionChain(let id):
+            return URL(
+                string: baseURLString + "evolution-chain/" + id
+            )
             
         case let .getSpeciesList(limit, offset):
             return URL(

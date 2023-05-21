@@ -9,28 +9,26 @@ import DomainLayer
 import Foundation
 
 protocol HomeViewModelProtocol: AnyObject {
-    var species: [SpeciesList.Species] { get set }
+    var species: [Species] { get set }
     func fetchSpecies(completion: @escaping () -> Void)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
     var isFetching: Bool = false
-    var species: [SpeciesList.Species] = []
+    var species: [Species] = []
     var fetchError: String?
     var limit: Int = 30
     var offset: Int = 0
     
-    let pokemonRepository: PokemonRepositoryProtocol
+    let pokemonUseCase: ListPokemonUseCaseProtocol
     
-    init(pokemonRepository: PokemonRepositoryProtocol) {
-        self.pokemonRepository = pokemonRepository
+    init(pokemonUseCase: ListPokemonUseCaseProtocol) {
+        self.pokemonUseCase = pokemonUseCase
     }
     
     func fetchSpecies(completion: @escaping () -> Void) {
-        let useCase = ListPokemonUseCase(pokemonRepository: pokemonRepository)
-        
         Task {
-            let response = await useCase.fetchSpecies(limit: limit, offset: offset)
+            let response = await pokemonUseCase.fetchSpecies(limit: limit, offset: offset)
             
             DispatchQueue.main.async { [weak self] in
                 switch response {

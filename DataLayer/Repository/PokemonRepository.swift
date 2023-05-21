@@ -26,5 +26,33 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
             return .failure(failure)
         }
     }
+    
+    public func fetchEvolution(id: String) async -> Result<[Species], Error> {
+        let response = await pokemonService.fetchEvolution(id: id)
+        
+        switch response {
+        case .success(let species):
+            var speciesArray: [SpeciesResponse] = []
+            speciesArray.append(species.chain.species)
+            speciesArray.append(contentsOf: extractEvolution(from: species.chain.evolvesTo))
+            
+            return .success(speciesArray.map { $0.toSpecies() })
+
+        case .failure(let failure):
+            return .failure(failure)
+        }
+    }
+    
+    // MARK: - Helper
+    private func extractEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
+        var extractedObjects: [SpeciesResponse] = []
+        
+        for object in objects {
+            extractedObjects.append(object.species)
+            extractedObjects += extractEvolution(from: object.evolvesTo)
+        }
+        
+        return extractedObjects
+    }
 
 }

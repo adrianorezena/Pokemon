@@ -9,13 +9,37 @@ import DomainLayer
 import Foundation
 
 protocol DetailViewModelProtocol {
-    var species: SpeciesList.Species { get set }
+    var species: Species { get set }
+    func fetchEvolution(completion: @escaping () -> Void)
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
-    var species: SpeciesList.Species
+    var species: Species
+    var evolution: [Species] = []
+    var fetchError: String?
     
-    init(species: SpeciesList.Species) {
+    let evolutionUseCase: EvolutionPokemonUseCaseProtocol
+    
+    init(evolutionUseCase: EvolutionPokemonUseCaseProtocol, species: Species) {
+        self.evolutionUseCase = evolutionUseCase
         self.species = species
+    }
+    
+    func fetchEvolution(completion: @escaping () -> Void) {
+        Task {
+            let response = await evolutionUseCase.fetchEvolution(id: species.id)
+            
+            DispatchQueue.main.async { [weak self] in
+                switch response {
+                case .success(let species):
+                    self?.evolution = species
+                    
+                case .failure(let failure):
+                    self?.fetchError = failure.localizedDescription
+                }
+                
+                completion()
+            }
+        }
     }
 }

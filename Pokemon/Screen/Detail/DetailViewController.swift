@@ -30,6 +30,9 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
      
         setupViews()
+        viewModel.fetchEvolution {
+            
+        }
     }
     
     private func setupViews() {

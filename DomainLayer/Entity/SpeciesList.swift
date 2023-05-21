@@ -8,18 +8,6 @@
 import Foundation
 
 public struct SpeciesList: Equatable {
-    public struct Species: Equatable {
-        public let id: String
-        public let name: String
-        public let imageURL: String
-        
-        public init(name: String, id: String, imageURL: String) {
-            self.name = name
-            self.id = id
-            self.imageURL = imageURL
-        }
-    }
-    
     public let count: Int
     public let nextLimit: Int?
     public let nextOffset: Int?
@@ -30,5 +18,17 @@ public struct SpeciesList: Equatable {
         self.nextLimit = nextLimit
         self.nextOffset = nextOffset
         self.results = results
+    }
+}
+
+public struct Species: Equatable {
+    public let id: String
+    public let name: String
+    public let imageURL: String
+    
+    public init(name: String, id: String, imageURL: String) {
+        self.name = name
+        self.id = id
+        self.imageURL = imageURL
     }
 }

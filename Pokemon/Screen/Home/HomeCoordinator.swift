@@ -18,15 +18,18 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let pokemonRepository: PokemonRepository = PokemonRepository()
-        let vm: HomeViewModel = HomeViewModel(pokemonRepository: pokemonRepository)
+        let repository: PokemonRepository = PokemonRepository()
+        let useCase: ListPokemonUseCase = ListPokemonUseCase(pokemonRepository: repository)
+        let vm: HomeViewModel = HomeViewModel(pokemonUseCase: useCase)
         let vc = HomeViewController(viewModel: vm)
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func openDetails(species: SpeciesList.Species) {
-        let vm: DetailViewModel = DetailViewModel(species: species)
+    func openDetails(species: Species) {
+        let repository: PokemonRepository = PokemonRepository()
+        let useCase: EvolutionPokemonUseCase = EvolutionPokemonUseCase(pokemonRepository: repository)
+        let vm: DetailViewModel = DetailViewModel(evolutionUseCase: useCase, species: species)
         let vc: DetailViewController = DetailViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
     }

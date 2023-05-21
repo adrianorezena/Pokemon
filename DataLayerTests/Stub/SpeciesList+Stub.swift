@@ -24,11 +24,11 @@ struct SpeciesListResponseStub {
             next: "https://pokeapi.co/api/v2/pokemon-species?offset=5&limit=5",
             previous: nil,
             results: [
-                SpeciesListResponse.SpeciesResponse(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon-species/1/"),
-                SpeciesListResponse.SpeciesResponse(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon-species/2/"),
-                SpeciesListResponse.SpeciesResponse(name: "venusaur", url: "https://pokeapi.co/api/v2/pokemon-species/3/"),
-                SpeciesListResponse.SpeciesResponse(name: "charmander", url: "https://pokeapi.co/api/v2/pokemon-species/4/"),
-                SpeciesListResponse.SpeciesResponse(name: "charmeleon", url: "https://pokeapi.co/api/v2/pokemon-species/5/")
+                SpeciesResponse(name: "bulbasaur", url: "https://pokeapi.co/api/v2/pokemon-species/1/"),
+                SpeciesResponse(name: "ivysaur", url: "https://pokeapi.co/api/v2/pokemon-species/2/"),
+                SpeciesResponse(name: "venusaur", url: "https://pokeapi.co/api/v2/pokemon-species/3/"),
+                SpeciesResponse(name: "charmander", url: "https://pokeapi.co/api/v2/pokemon-species/4/"),
+                SpeciesResponse(name: "charmeleon", url: "https://pokeapi.co/api/v2/pokemon-species/5/")
             ]
         )
     }

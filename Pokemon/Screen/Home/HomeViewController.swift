@@ -86,7 +86,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let species: SpeciesList.Species = viewModel.species[indexPath.row]
+        let species: Species = viewModel.species[indexPath.row]
         coordinator?.openDetails(species: species)
     }
     
