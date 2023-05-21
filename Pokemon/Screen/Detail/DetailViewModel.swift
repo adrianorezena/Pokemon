@@ -10,15 +10,12 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var species: SpeciesList.Species { get set }
-    var imageURL: String? { get set }
 }
 
 final class DetailViewModel: DetailViewModelProtocol {
     var species: SpeciesList.Species
-    var imageURL: String?
     
-    init(species: SpeciesList.Species, imageURL: String?) {
+    init(species: SpeciesList.Species) {
         self.species = species
-        self.imageURL = imageURL
     }
 }

@@ -39,7 +39,6 @@
 		801D53B32A1973320067F517 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53B22A1973320067F517 /* HomeCell.swift */; };
 		806670332A1A37340014C1AB /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 806670322A1A37340014C1AB /* Kingfisher */; };
 		806670362A1A3DAF0014C1AB /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670352A1A3DAF0014C1AB /* AsyncImageView.swift */; };
-		8066703A2A1A4F460014C1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670392A1A4F460014C1AB /* Constants.swift */; };
 		8066704D2A1A65280014C1AB /* ListPokemonUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */; };
 		8066704F2A1A75CB0014C1AB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066704E2A1A75CA0014C1AB /* Coordinator.swift */; };
 		806670512A1A75EB0014C1AB /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670502A1A75EB0014C1AB /* HomeCoordinator.swift */; };
@@ -193,7 +192,6 @@
 		801D53B02A1971640067F517 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		801D53B22A1973320067F517 /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		806670352A1A3DAF0014C1AB /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
-		806670392A1A4F460014C1AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		806670462A1A60DE0014C1AB /* Infrastructure.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Infrastructure.xctestplan; sourceTree = "<group>"; };
 		806670472A1A61980014C1AB /* DataLayer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DataLayer.xctestplan; sourceTree = "<group>"; };
 		806670482A1A624B0014C1AB /* DomainLayer.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = DomainLayer.xctestplan; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 		806670382A1A4F260014C1AB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				806670392A1A4F460014C1AB /* Constants.swift */,
 				8066704E2A1A75CA0014C1AB /* Coordinator.swift */,
 			);
 			path = Utils;
@@ -900,7 +897,6 @@
 				80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */,
 				80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */,
 				801D53B12A1971640067F517 /* HomeViewModel.swift in Sources */,
-				8066703A2A1A4F460014C1AB /* Constants.swift in Sources */,
 				806670542A1A78710014C1AB /* DetailViewController.swift in Sources */,
 				801D53B32A1973320067F517 /* HomeCell.swift in Sources */,
 				806670562A1A789B0014C1AB /* DetailViewModel.swift in Sources */,

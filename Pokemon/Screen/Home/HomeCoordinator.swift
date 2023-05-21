@@ -25,8 +25,8 @@ final class HomeCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func openDetails(species: SpeciesList.Species, imageURL: String?) {
-        let vm: DetailViewModel = DetailViewModel(species: species, imageURL: imageURL)
+    func openDetails(species: SpeciesList.Species) {
+        let vm: DetailViewModel = DetailViewModel(species: species)
         let vc: DetailViewController = DetailViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
     }

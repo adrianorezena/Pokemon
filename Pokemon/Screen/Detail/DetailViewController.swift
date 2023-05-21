@@ -44,7 +44,6 @@ final class DetailViewController: UIViewController {
             pokemonImageView.heightAnchor.constraint(equalToConstant: 150)
         ])
         
-        pokemonImageView.setImage(urlString: viewModel.imageURL)
-        
+        pokemonImageView.setImage(urlString: viewModel.species.imageURL)
     }
 }

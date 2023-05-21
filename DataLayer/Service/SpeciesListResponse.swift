@@ -59,9 +59,13 @@ extension SpeciesListResponse {
 
 extension SpeciesListResponse.SpeciesResponse {
     public func toSpecies(id: String? = nil) -> SpeciesList.Species {
+        let id: String = NSString(string: url).lastPathComponent
+        let imageURL: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(id).png"
+        
         return SpeciesList.Species(
             name: name,
-            url: url
+            id: id,
+            imageURL: imageURL
         )
     }
 }

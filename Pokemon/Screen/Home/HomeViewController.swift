@@ -55,10 +55,6 @@ final class HomeViewController: UIViewController {
             self?.tableView.reloadData()
         }
     }
-
-    private func getImageID(forRowAt indexPath: IndexPath) -> String {
-        String(indexPath.row + 1)
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -71,9 +67,8 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
         let species = viewModel.species[indexPath.row]
-        let imageID: String = getImageID(forRowAt: indexPath)
         cell.nameLabel.text = species.name
-        cell.pokemonImageView.setImage(urlString: String(format: URLs.pokemonImage, imageID))
+        cell.pokemonImageView.setImage(urlString: species.imageURL)
         return cell
     }
     
@@ -92,8 +87,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let species: SpeciesList.Species = viewModel.species[indexPath.row]
-        let imageID: String = getImageID(forRowAt: indexPath)
-        coordinator?.openDetails(species: species, imageURL: String(format: URLs.pokemonImage, imageID))
+        coordinator?.openDetails(species: species)
     }
     
 }

@@ -9,12 +9,14 @@ import Foundation
 
 public struct SpeciesList: Equatable {
     public struct Species: Equatable {
+        public let id: String
         public let name: String
-        public let url: String
+        public let imageURL: String
         
-        public init(name: String, url: String) {
+        public init(name: String, id: String, imageURL: String) {
             self.name = name
-            self.url = url
+            self.id = id
+            self.imageURL = imageURL
         }
     }
     
