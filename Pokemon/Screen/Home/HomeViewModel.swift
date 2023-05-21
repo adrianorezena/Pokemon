@@ -20,9 +20,9 @@ final class HomeViewModel: HomeViewModelProtocol {
     var limit: Int = 30
     var offset: Int = 0
     
-    let pokemonUseCase: ListPokemonUseCaseProtocol
+    let pokemonUseCase: PokemonListUseCaseProtocol
     
-    init(pokemonUseCase: ListPokemonUseCaseProtocol) {
+    init(pokemonUseCase: PokemonListUseCaseProtocol) {
         self.pokemonUseCase = pokemonUseCase
     }
     

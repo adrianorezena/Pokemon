@@ -7,11 +7,11 @@
 
 import Foundation
 
-public protocol EvolutionPokemonUseCaseProtocol {
+public protocol PokemonEvolutionUseCaseProtocol {
     func fetchEvolution(id: String) async -> Result<[Species], Error>
 }
 
-public final class EvolutionPokemonUseCase: EvolutionPokemonUseCaseProtocol {
+public final class PokemonEvolutionUseCase: PokemonEvolutionUseCaseProtocol {
     let pokemonRepository: PokemonRepositoryProtocol
     
     public init(pokemonRepository: PokemonRepositoryProtocol) {

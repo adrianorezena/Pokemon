@@ -19,7 +19,7 @@ final class HomeCoordinator: Coordinator {
     
     func start() {
         let repository: PokemonRepository = PokemonRepository()
-        let useCase: ListPokemonUseCase = ListPokemonUseCase(pokemonRepository: repository)
+        let useCase: PokemonListUseCase = PokemonListUseCase(pokemonRepository: repository)
         let vm: HomeViewModel = HomeViewModel(pokemonUseCase: useCase)
         let vc = HomeViewController(viewModel: vm)
         vc.coordinator = self
@@ -28,7 +28,7 @@ final class HomeCoordinator: Coordinator {
     
     func openDetails(species: Species) {
         let repository: PokemonRepository = PokemonRepository()
-        let useCase: EvolutionPokemonUseCase = EvolutionPokemonUseCase(pokemonRepository: repository)
+        let useCase: PokemonEvolutionUseCase = PokemonEvolutionUseCase(pokemonRepository: repository)
         let vm: DetailViewModel = DetailViewModel(evolutionUseCase: useCase, species: species)
         let vc: DetailViewController = DetailViewController(viewModel: vm)
         navigationController.pushViewController(vc, animated: true)
