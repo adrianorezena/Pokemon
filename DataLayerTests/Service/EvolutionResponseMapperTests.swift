@@ -18,7 +18,7 @@ final class EvolutionResponseMapperTests: XCTestCase {
         )
     }
     
-    func test_map_returnsSpeciesListOnValidData() {
+    func test_map_returnsEvolutionOnValidData() {
         let stubbedData = EvolutionResponseStub.asData()
         let speciesList = try? EvolutionResponseMapper.map(stubbedData)
         XCTAssertEqual(speciesList, EvolutionResponseStub.asObject())

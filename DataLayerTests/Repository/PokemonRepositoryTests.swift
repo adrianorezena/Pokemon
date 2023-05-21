@@ -65,15 +65,44 @@ final class PokemonRepositoryTests: XCTestCase {
         }
     }
     
+    func test_getSpecies_succeedOnServiceResponse() async {
+        let sut: PokemonRepository = makeSUT(detailResponse: .success(SpeciesDetailStub.asObject()))
+        let response = await sut.getSpeciesDetail(id: "1")
+        
+        switch response {
+        case .success(let speciesDetail):
+            XCTAssertEqual(speciesDetail.chainID, "1")
+            XCTAssertEqual(speciesDetail.color, "green")
+            
+        case .failure(let failure):
+            XCTFail("Expected success, got \(failure) instead")
+        }
+    }
+    
+    func test_getSpecies_failsOnServiceError() async {
+        let sut: PokemonRepository = makeSUT(detailResponse: .failure(anyNSError()))
+        let response = await sut.getSpeciesDetail(id: "1")
+        
+        switch response {
+        case .success(let speciesDetail):
+            XCTFail("Expected failure, got \(speciesDetail) instead")
+            
+        case .failure(let failure):
+            XCTAssertEqual(failure.localizedDescription, anyNSError().localizedDescription)
+        }
+    }
+    
     // MARK: - Helper
     private func makeSUT(
         listResponse: Result<SpeciesListResponse, Error>? = nil,
         evolutionResponse: Result<EvolutionResponse, Error>? = nil,
+        detailResponse: Result<SpeciesDetailResponse, Error>? = nil,
         file: StaticString = #filePath, line: UInt = #line
     ) -> PokemonRepository {
         let service: PokemonServiceStub = PokemonServiceStub(
             listResponse: listResponse,
-            evolutionResponse: evolutionResponse
+            evolutionResponse: evolutionResponse,
+            detailResponse: detailResponse
         )
         let sut: PokemonRepository = PokemonRepository(pokemonService: service)
         
@@ -86,13 +115,16 @@ final class PokemonRepositoryTests: XCTestCase {
     private class PokemonServiceStub: PokemonServiceProtocol {
         let listResponse: Result<SpeciesListResponse, Error>
         let evolutionResponse: Result<EvolutionResponse, Error>
+        let detailResponse: Result<SpeciesDetailResponse, Error>
         
         init(
             listResponse: Result<SpeciesListResponse, Error>? = nil,
-            evolutionResponse: Result<EvolutionResponse, Error>? = nil
+            evolutionResponse: Result<EvolutionResponse, Error>? = nil,
+            detailResponse: Result<SpeciesDetailResponse, Error>? = nil
         ) {
             self.listResponse = listResponse ?? .failure(NSError(domain: "Not espected", code: 0))
             self.evolutionResponse = evolutionResponse ?? .failure(NSError(domain: "Not espected", code: 0))
+            self.detailResponse = detailResponse ?? .failure(NSError(domain: "Not espected", code: 0))
         }
         
         func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesListResponse, Error> {
@@ -101,6 +133,10 @@ final class PokemonRepositoryTests: XCTestCase {
         
         func fetchEvolution(id: String) async -> Result<EvolutionResponse, Error> {
             evolutionResponse
+        }
+        
+        func getSpecies(id: String) async -> Result<SpeciesDetailResponse, Error> {
+            detailResponse
         }
     }
 

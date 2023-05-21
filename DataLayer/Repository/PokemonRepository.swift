@@ -43,6 +43,19 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         }
     }
     
+    public func getSpeciesDetail(id: String) async -> Result<SpeciesDetail, Error> {
+        let response = await pokemonService.getSpecies(id: id)
+        
+        switch response {
+        case .success(let speciesDetailResponse):
+            return .success(speciesDetailResponse.toSpeciesDetail())
+            
+        case .failure(let failure):
+            return .failure(failure)
+        }
+        
+    }
+    
     // MARK: - Helper
     private func extractEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
         var extractedObjects: [SpeciesResponse] = []

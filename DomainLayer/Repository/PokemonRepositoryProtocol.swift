@@ -10,4 +10,5 @@ import Foundation
 public protocol PokemonRepositoryProtocol: AnyObject {
     func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesList, Error>
     func fetchEvolution(id: String) async -> Result<[Species], Error>
+    func getSpeciesDetail(id: String) async -> Result<SpeciesDetail, Error>
 }
