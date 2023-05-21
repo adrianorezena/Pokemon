@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol ListPokemonUseCaseProtocol {
-    func fetchSpecies(limit: Int, offset: Int) async -> Result<[SpeciesList.Species], Error>
+    func fetchSpecies(limit: Int, offset: Int) async -> Result<SpeciesList, Error>
 }
             
 public final class ListPokemonUseCase: ListPokemonUseCaseProtocol {
@@ -18,12 +18,12 @@ public final class ListPokemonUseCase: ListPokemonUseCaseProtocol {
         self.pokemonRepository = pokemonRepository
     }
     
-    public func fetchSpecies(limit: Int, offset: Int) async -> Result<[SpeciesList.Species], Error> {
+    public func fetchSpecies(limit: Int, offset: Int) async -> Result<SpeciesList, Error> {
         let response = await pokemonRepository.getSpeciesList(limit: limit, offset: offset)
         
         switch response {
         case .success(let speciesList):
-            return .success(speciesList.results)
+            return .success(speciesList)
             
         case .failure(let failure):
             return .failure(failure)

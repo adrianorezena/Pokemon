@@ -35,17 +35,9 @@ extension SpeciesListResponse {
 
 extension SpeciesListResponse.SpeciesResponse {
     public func toSpecies(id: String? = nil) -> SpeciesList.Species {
-        let imageFormat: String = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/%@.png"
-        var imageURL: String? = nil
-        
-        if let id: String = id {
-            imageURL = String(format: imageFormat, id)
-        }
-        
         return SpeciesList.Species(
             name: name,
-            url: url,
-            imageURL: imageURL
+            url: url
         )
     }
 }

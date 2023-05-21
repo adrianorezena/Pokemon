@@ -42,7 +42,7 @@ final class HomeViewController: UIViewController {
         ])
 
         tableView.dataSource = self
-//        tableView.delegate = self
+        tableView.delegate = self
     }
     
     override func viewDidLoad() {
@@ -57,6 +57,7 @@ final class HomeViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -67,8 +68,21 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
         let species = viewModel.species[indexPath.row]
         cell.nameLabel.text = species.name
-        cell.pokemonImageView.setImage(urlString: species.imageURL)
+        cell.pokemonImageView.setImage(urlString: String(format: URLs.pokemonImage, String(indexPath.row + 1)))
         return cell
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.species.count - 10 {
+            viewModel.fetchSpecies { [weak self] in
+                self?.tableView.reloadData()
+            }
+        }
     }
     
 }
