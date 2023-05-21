@@ -16,8 +16,8 @@ final class APIRouteTests: XCTestCase {
     }
     
     func test_getSpecies_returnsRightURL() {
-        let sut = APIRoute.getSpecies(anyURL())
-        XCTAssertEqual(sut.url?.absoluteString, anyURL().absoluteString)
+        let sut = APIRoute.getSpecies(id: "1")
+        XCTAssertEqual(sut.url?.absoluteString, "https://pokeapi.co/api/v2/pokemon-species/1")
     }
     
     func test_getEvolutionChain_returnsRightURL() {
