@@ -10,6 +10,7 @@ import UIKit
 
 final class HomeViewController: UIViewController {
     let viewModel: HomeViewModelProtocol
+    weak var coordinator: HomeCoordinator?
     
     private let tableView: UITableView = {
         let cellPadding: CGFloat = 16

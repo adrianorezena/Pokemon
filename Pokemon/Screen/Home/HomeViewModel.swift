@@ -5,7 +5,6 @@
 //  Created by Adriano Rezena on 20/05/23.
 //
 
-import DataLayer // TODO: Move to Coordinator
 import DomainLayer
 import Foundation
 
@@ -21,8 +20,14 @@ final class HomeViewModel: HomeViewModelProtocol {
     var limit: Int = 30
     var offset: Int = 0
     
+    let pokemonRepository: PokemonRepositoryProtocol
+    
+    init(pokemonRepository: PokemonRepositoryProtocol) {
+        self.pokemonRepository = pokemonRepository
+    }
+    
     func fetchSpecies(completion: @escaping () -> Void) {
-        let useCase = ListPokemonUseCase(pokemonRepository: PokemonRepository())
+        let useCase = ListPokemonUseCase(pokemonRepository: pokemonRepository)
         
         Task {
             let response = await useCase.fetchSpecies(limit: limit, offset: offset)

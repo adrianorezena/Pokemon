@@ -41,6 +41,8 @@
 		806670362A1A3DAF0014C1AB /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670352A1A3DAF0014C1AB /* AsyncImageView.swift */; };
 		8066703A2A1A4F460014C1AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670392A1A4F460014C1AB /* Constants.swift */; };
 		8066704D2A1A65280014C1AB /* ListPokemonUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */; };
+		8066704F2A1A75CB0014C1AB /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066704E2A1A75CA0014C1AB /* Coordinator.swift */; };
+		806670512A1A75EB0014C1AB /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670502A1A75EB0014C1AB /* HomeCoordinator.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
@@ -196,6 +198,8 @@
 		806670492A1A64060014C1AB /* Pokemon.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Pokemon.xctestplan; sourceTree = "<group>"; };
 		8066704B2A1A65270014C1AB /* DomainLayerTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainLayerTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		8066704C2A1A65280014C1AB /* ListPokemonUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPokemonUseCaseTests.swift; sourceTree = "<group>"; };
+		8066704E2A1A75CA0014C1AB /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		806670502A1A75EB0014C1AB /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -411,6 +415,7 @@
 				80F9E6792A17C62E002621EC /* HomeViewController.swift */,
 				801D53B02A1971640067F517 /* HomeViewModel.swift */,
 				801D53B22A1973320067F517 /* HomeCell.swift */,
+				806670502A1A75EB0014C1AB /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -427,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				806670392A1A4F460014C1AB /* Constants.swift */,
+				8066704E2A1A75CA0014C1AB /* Coordinator.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -874,7 +880,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8066704F2A1A75CB0014C1AB /* Coordinator.swift in Sources */,
 				80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */,
+				806670512A1A75EB0014C1AB /* HomeCoordinator.swift in Sources */,
 				80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */,
 				80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */,
 				801D53B12A1971640067F517 /* HomeViewModel.swift in Sources */,
