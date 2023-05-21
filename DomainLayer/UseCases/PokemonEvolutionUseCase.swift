@@ -19,8 +19,23 @@ public final class PokemonEvolutionUseCase: PokemonEvolutionUseCaseProtocol {
     }
     
     public func fetchEvolution(id: String) async -> Result<[Species], Error> {
-        let response = await pokemonRepository.fetchEvolution(id: id)
-        return response
+        let speciesDetail = await pokemonRepository.getSpeciesDetail(id: id)
+        
+        switch speciesDetail {
+        case .success(let details):
+            let evolutionDetails = await pokemonRepository.fetchEvolution(id: details.chainID)
+            
+            switch evolutionDetails {
+            case .success(let species):
+                return .success(species)
+                
+            case .failure(let failure):
+                return .failure(failure)
+            }
+            
+        case .failure(let failure):
+            return .failure(failure)
+        }
     }
     
 }
