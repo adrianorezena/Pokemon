@@ -10,6 +10,7 @@ import Foundation
 
 protocol DetailViewModelProtocol {
     var species: Species { get set }
+    var evolution: [Species] { get set }
     func fetchEvolution(completion: @escaping () -> Void)
 }
 

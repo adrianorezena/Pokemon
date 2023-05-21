@@ -10,12 +10,33 @@ import UIKit
 final class DetailViewController: UIViewController {
     let viewModel: DetailViewModelProtocol
     
-    let pokemonImageView: AsyncImageView = {
+    private let pokemonImageView: AsyncImageView = {
         let imageView = AsyncImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    private let evolutionLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.boldSystemFont(ofSize: 26)
+        label.textColor = .label
+        label.text = "Evolution"
+        return label
+    }()
+    
+    private let tableView: UITableView = {
+        let cellPadding: CGFloat = 16
+        let cellHeight: CGFloat = 40
+        
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.rowHeight = cellHeight + cellPadding + cellPadding
+        tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.reuseIdentifier)
+        return tableView
+    }()
+
     
     init(viewModel: DetailViewModelProtocol) {
         self.viewModel = viewModel
@@ -30,16 +51,23 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
      
         setupViews()
-        viewModel.fetchEvolution {
-            
+        viewModel.fetchEvolution { [weak self] in
+            self?.tableView.reloadData()
         }
     }
     
     private func setupViews() {
         navigationItem.title = viewModel.species.name.uppercased()
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
+        setupPokemonImage()
+        setupEvolutionLabel()
+        setupTableView()
+    }
+    
+    private func setupPokemonImage() {
         view.addSubview(pokemonImageView)
+        
         NSLayoutConstraint.activate([
             pokemonImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
             pokemonImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -49,4 +77,46 @@ final class DetailViewController: UIViewController {
         
         pokemonImageView.setImage(urlString: viewModel.species.imageURL)
     }
+    
+    private func setupEvolutionLabel() {
+        view.addSubview(evolutionLabel)
+        
+        NSLayoutConstraint.activate([
+            evolutionLabel.topAnchor.constraint(equalTo: pokemonImageView.bottomAnchor, constant: 20),
+            evolutionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            evolutionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16),
+            evolutionLabel.heightAnchor.constraint(equalToConstant: 40)
+        ])
+    }
+    
+    private func setupTableView() {
+        view.addSubview(tableView)
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: evolutionLabel.bottomAnchor, constant: 20),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+
+        tableView.dataSource = self
+    }
+    
+}
+
+// MARK: - UITableViewDataSource
+extension DetailViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.evolution.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
+        let evolution = viewModel.evolution[indexPath.row]
+        cell.nameLabel.text = evolution.name
+        cell.pokemonImageView.setImage(urlString: evolution.imageURL)
+        return cell
+    }
+    
 }
