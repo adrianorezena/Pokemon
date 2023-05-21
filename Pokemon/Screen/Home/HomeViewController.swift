@@ -33,6 +33,11 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupViews() {
+        navigationItem.title = "Pokemon List"
+        setupTableView()
+    }
+    
+    private func setupTableView() {
         view.addSubview(tableView)
 
         NSLayoutConstraint.activate([
