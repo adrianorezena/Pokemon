@@ -10,10 +10,10 @@ import UIKit
 class HomeCell: UITableViewCell {
     static let reuseIdentifier = "HomeCell"
     
-    let pokemonImageView: UIImageView = {
-        let imageView = UIImageView()
+    let pokemonImageView: AsyncImageView = {
+        let imageView = AsyncImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         return imageView
     }()
     
