@@ -37,6 +37,15 @@ final class DetailViewController: UIViewController {
         return tableView
     }()
 
+    private let errorLabel: UILabel = {
+        let label: UILabel = UILabel(frame: .zero)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .red
+        label.font = .boldSystemFont(ofSize: 16)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        return label
+    }()
     
     init(viewModel: DetailViewModelProtocol) {
         self.viewModel = viewModel
@@ -52,6 +61,12 @@ final class DetailViewController: UIViewController {
      
         setupViews()
         viewModel.fetchEvolution { [weak self] in
+            self?.errorLabel.text = ""
+            
+            if let error = self?.viewModel.fetchError {
+                self?.errorLabel.text = error
+            }
+            
             self?.tableView.reloadData()
         }
     }
@@ -63,6 +78,7 @@ final class DetailViewController: UIViewController {
         setupPokemonImage()
         setupEvolutionLabel()
         setupTableView()
+        setupErrorLabel()
     }
     
     private func setupPokemonImage() {
@@ -100,6 +116,16 @@ final class DetailViewController: UIViewController {
         ])
 
         tableView.dataSource = self
+    }
+    
+    private func setupErrorLabel() {
+        tableView.addSubview(errorLabel)
+        
+        NSLayoutConstraint.activate([
+            errorLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+            errorLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            errorLabel.widthAnchor.constraint(equalTo: tableView.widthAnchor, constant: -40)
+        ])
     }
     
 }
