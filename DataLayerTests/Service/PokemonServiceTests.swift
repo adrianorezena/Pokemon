@@ -25,6 +25,58 @@ final class PokemonServiceTests: XCTestCase {
         }
     }
     
+    // MARK: - fetchEvolution
+    func test_fetchEvolution_succeedOnServiceResponse() async {
+        let client = ClientStub(
+            response: .success(
+                (EvolutionResponseStub.asData(), HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!)
+            )
+        )
+        
+        let sut = PokemonService(client: client)
+        let response = await sut.fetchEvolution(id: "1")
+        
+        switch response {
+        case .success(let evolution):
+            XCTAssertEqual(evolution.chain.species.name, "bulbasaur")
+            
+        case .failure(let failure):
+            XCTFail("Expected success, got \(failure) instead")
+        }
+    }
+    
+    func test_fetchEvolution_failsOnServiceError() async {
+        let client = ClientStub(response: .failure(anyNSError()))
+        let sut = PokemonService(client: client)
+        let response = await sut.fetchEvolution(id: "1")
+
+        switch response {
+        case .success(let evolution):
+            XCTFail("Expected failure, got \(evolution) instead")
+
+        case .failure(let failure):
+            XCTAssertEqual(failure.localizedDescription, anyNSError().localizedDescription)
+        }
+    }
+    
+    func test_fetchEvolution_failsOn_mapSpeciesDetailResponse() async {
+        let client = ClientStub(
+            response: .success((anyData(), HTTPURLResponse(url: anyURL(), statusCode: 200, httpVersion: nil, headerFields: nil)!))
+        )
+        
+        let sut = PokemonService(client: client)
+        let response = await sut.fetchEvolution(id: "1")
+        
+        switch response {
+        case .success(let evolution):
+            XCTFail("Expected failure, got \(evolution) instead")
+            
+        case .failure(let failure):
+            XCTAssertEqual(failure.localizedDescription, EvolutionResponseMapper.Error.invalidData.localizedDescription)
+        }
+    }
+    
+    // MARK: - getSpecies
     func test_getSpecies_succeedOnServiceResponse() async {
         let client = ClientStub(
             response: .success(
