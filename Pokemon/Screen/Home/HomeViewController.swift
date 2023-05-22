@@ -64,12 +64,12 @@ final class HomeViewController: UIViewController {
     }
     
     private func setupErrorLabel() {
-        view.addSubview(errorLabel)
+        tableView.addSubview(errorLabel)
         
         NSLayoutConstraint.activate([
-            errorLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            errorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            errorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            errorLabel.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+            errorLabel.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            errorLabel.widthAnchor.constraint(equalTo: tableView.widthAnchor, constant: -40)
         ])
     }
     
