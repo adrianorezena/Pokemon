@@ -33,6 +33,11 @@ final class HomeViewController: UIViewController {
         return label
     }()
     
+    private let refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        return refreshControl
+    }()
+    
     init(viewModel: HomeViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -47,6 +52,7 @@ final class HomeViewController: UIViewController {
         navigationItem.title = "Pokemon List"
         setupTableView()
         setupErrorLabel()
+        setupRefreshControl()
     }
     
     private func setupTableView() {
@@ -73,21 +79,48 @@ final class HomeViewController: UIViewController {
         ])
     }
     
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(onRefreshData), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
+        fetchSpecies()
+    }
+    
+    // MARK: - Other
+    private func fetchSpecies() {
+        self.errorLabel.text = ""
         
         viewModel.fetchSpecies { [weak self] in
-            self?.errorLabel.text = ""
-            
             if let fetchError = self?.viewModel.fetchError {
                 self?.errorLabel.text = fetchError
             }
             
             self?.tableView.reloadData()
+            self?.refreshControl.endRefreshing()
         }
+    }
+    
+    private func fetchModeSpecies() {
+        viewModel.fetchMoreSpecies { [weak self] newSpecies in
+            guard let self = self else { return }
+            
+            let indexPaths: [IndexPath] = (viewModel.species.count - newSpecies.count..<viewModel.species.count).map { IndexPath(row: $0, section: 0) }
+            
+            self.tableView.beginUpdates()
+            self.tableView.insertRows(at: indexPaths, with: .automatic)
+            self.tableView.endUpdates()
+        }
+    }
+    
+    @objc
+    private func onRefreshData() {
+        fetchSpecies()
     }
 
 }
@@ -114,9 +147,7 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.species.count - 10 {
-            viewModel.fetchSpecies { [weak self] in
-                self?.tableView.reloadData()
-            }
+            fetchModeSpecies()
         }
     }
     

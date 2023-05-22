@@ -12,6 +12,7 @@ protocol HomeViewModelProtocol: AnyObject {
     var species: [Species] { get set }
     var fetchError: String? { get set }
     func fetchSpecies(completion: @escaping () -> Void)
+    func fetchMoreSpecies(completion: @escaping ([Species]) -> Void)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -28,27 +29,53 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     func fetchSpecies(completion: @escaping () -> Void) {
+        limit = 30
+        offset = 0
+        fetchError = ""
+        
         Task {
             let response = await pokemonUseCase.fetchSpecies(limit: limit, offset: offset)
             
             DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
                 switch response {
                 case .success(let speciesList):
-                    if self?.offset == 0 {
-                        self?.species = speciesList.results
-                    } else {
-                        self?.species.append(contentsOf: speciesList.results)
-                    }
-
-                    self?.limit = speciesList.nextLimit ?? 0
-                    self?.offset = speciesList.nextOffset ?? 0
+                    self.species = speciesList.results
+                    self.limit = speciesList.nextLimit ?? 0
+                    self.offset = speciesList.nextOffset ?? 0
                     
                 case .failure(let failure):
-                    self?.fetchError = failure.localizedDescription
+                    self.fetchError = failure.localizedDescription
+                    self.species.removeAll()
                 }
                 
                 completion()
             }
         }
     }
+    
+    func fetchMoreSpecies(completion: @escaping ([Species]) -> Void) {
+        Task {
+            let response = await pokemonUseCase.fetchSpecies(limit: limit, offset: offset)
+            
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                
+                switch response {
+                case .success(let speciesList):
+                    self.species.append(contentsOf: speciesList.results)
+                    self.limit = speciesList.nextLimit ?? 0
+                    self.offset = speciesList.nextOffset ?? 0
+                    completion(speciesList.results)
+                    
+                case .failure(let failure):
+                    self.fetchError = failure.localizedDescription
+                    completion([])
+                }
+                
+            }
+        }
+    }
+    
 }
