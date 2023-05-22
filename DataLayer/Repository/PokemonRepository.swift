@@ -67,16 +67,5 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         
         return extractedObjects
     }
-        
-    private func extractFullEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
-        var extractedObjects: [SpeciesResponse] = []
-        
-        for object in objects {
-            extractedObjects.append(object.species)
-            extractedObjects += extractFullEvolution(from: object.evolvesTo)
-        }
-        
-        return extractedObjects
-    }
 
 }
