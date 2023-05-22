@@ -47,6 +47,12 @@ final class DetailViewController: UIViewController {
         return label
     }()
     
+    private let loadingIndicator: UIActivityIndicatorView = {
+        let loadingIndicator = UIActivityIndicatorView(style: .medium)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return loadingIndicator
+    }()
+    
     init(viewModel: DetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -56,21 +62,7 @@ final class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-     
-        setupViews()
-        viewModel.fetchEvolution { [weak self] in
-            self?.errorLabel.text = ""
-            
-            if let error = self?.viewModel.fetchError {
-                self?.errorLabel.text = error
-            }
-            
-            self?.tableView.reloadData()
-        }
-    }
-    
+    // MARK: - Setup
     private func setupViews() {
         navigationItem.title = viewModel.species.name.uppercased()
         view.backgroundColor = .systemBackground
@@ -79,6 +71,7 @@ final class DetailViewController: UIViewController {
         setupEvolutionLabel()
         setupTableView()
         setupErrorLabel()
+        setupLoadingIndicator()
     }
     
     private func setupPokemonImage() {
@@ -128,6 +121,35 @@ final class DetailViewController: UIViewController {
         ])
     }
     
+    private func setupLoadingIndicator() {
+        tableView.addSubview(loadingIndicator)
+        
+        NSLayoutConstraint.activate([
+            loadingIndicator.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+            loadingIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+        ])
+    }
+
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        setupViews()
+        
+        loadingIndicator.startAnimating()
+        
+        viewModel.fetchEvolution { [weak self] in
+            self?.errorLabel.text = ""
+            
+            if let error = self?.viewModel.fetchError {
+                self?.errorLabel.text = error
+            }
+            
+            self?.tableView.reloadData()
+            self?.loadingIndicator.stopAnimating()
+        }
+    }
+
 }
 
 // MARK: - UITableViewDataSource
