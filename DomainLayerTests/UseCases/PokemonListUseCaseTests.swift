@@ -12,39 +12,52 @@ import XCTest
 final class PokemonListUseCaseTests: XCTestCase {
 
     func test_fetchSpecies_succeedOnRepositoryResponse() async {
-        let expectedSpeciesList = SpeciesList(count: 1, nextLimit: 5, nextOffset: 5, results: [])
-        let repository = PokemonRepositoryMock(getSpeciesListResponse: .success(expectedSpeciesList))
-
-        let sut = PokemonListUseCase(pokemonRepository: repository)
-        let response = await sut.fetchSpecies(limit: 5, offset: 5)
-        
-        switch response {
-        case .success(let speciesList):
-            XCTAssertEqual(speciesList, expectedSpeciesList)
-            
-        case .failure(let failure):
-            XCTFail("Expected success, got \(failure) instead")
-        }
+        let expectedResult = SpeciesList(count: 1, nextLimit: 5, nextOffset: 5, results: [])
+        let sut = makeSUT(repositoryGetSpeciesListResponse: .success(expectedResult))
+        await expect(sut, toCompleteWith: .success(expectedResult))
     }
     
     func test_fetchSpecies_failsOnAnyRepositoryError() async {
-        let repository = PokemonRepositoryMock(getSpeciesListResponse: .failure(anyNSError()))
-        let sut = PokemonListUseCase(pokemonRepository: repository)
-        let response = await sut.fetchSpecies(limit: 5, offset: 5)
-        
-        switch response {
-        case .success(let speciesList):
-            XCTFail("Expected failure, got \(speciesList) instead")
-            
-        case .failure(let failure as NSError):
-            XCTAssertEqual(failure, anyNSError())
-        }
+        let expectedError = anyNSError()
+        let sut = makeSUT(repositoryGetSpeciesListResponse: .failure(expectedError))
+        await expect(sut, toCompleteWith: .failure(expectedError))
     }
 
 }
 
 // MARK: - Helpers
 extension PokemonListUseCaseTests {
+    
+    private func makeSUT(
+        repositoryGetSpeciesListResponse: Result<SpeciesList, Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> PokemonListUseCaseProtocol {
+        let repository = PokemonRepositoryMock(getSpeciesListResponse: repositoryGetSpeciesListResponse)
+        let sut = PokemonListUseCase(pokemonRepository: repository)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        return sut
+    }
+    
+    private func expect(
+        _ sut: PokemonListUseCaseProtocol,
+        toCompleteWith expectedResult: Result<SpeciesList, Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) async {
+        let receivedResult = await sut.fetchSpecies(limit: 5, offset: 5)
+        
+        switch (receivedResult, expectedResult) {
+        case (.success, .success):
+            break
+            
+        case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+            XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            
+        default:
+            XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+        }
+    }
     
     private class PokemonRepositoryMock: PokemonRepositoryProtocol {
         var getSpeciesListResponse: Result<SpeciesList, Error>
