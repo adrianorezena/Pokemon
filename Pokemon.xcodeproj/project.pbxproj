@@ -9,15 +9,12 @@
 /* Begin PBXBuildFile section */
 		801D53342A18E7800067F517 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D532C2A18E7800067F517 /* Infrastructure.framework */; };
 		801D533B2A18E7800067F517 /* InfrastructureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D533A2A18E7800067F517 /* InfrastructureTests.swift */; };
-		801D533C2A18E7800067F517 /* Infrastructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D532E2A18E7800067F517 /* Infrastructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D533F2A18E7800067F517 /* Infrastructure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D532C2A18E7800067F517 /* Infrastructure.framework */; };
 		801D53402A18E7800067F517 /* Infrastructure.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D532C2A18E7800067F517 /* Infrastructure.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		801D53552A18E7C80067F517 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; };
-		801D535D2A18E7C80067F517 /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D534F2A18E7C80067F517 /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D53602A18E7C80067F517 /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; };
 		801D53612A18E7C80067F517 /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D534D2A18E7C80067F517 /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		801D53752A18E7DC0067F517 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; };
-		801D537D2A18E7DC0067F517 /* DomainLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 801D536F2A18E7DC0067F517 /* DomainLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		801D53802A18E7DC0067F517 /* DomainLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; };
 		801D53812A18E7DC0067F517 /* DomainLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 801D536D2A18E7DC0067F517 /* DomainLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		801D538A2A18E95A0067F517 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801D53892A18E95A0067F517 /* HTTPClient.swift */; };
@@ -182,14 +179,11 @@
 
 /* Begin PBXFileReference section */
 		801D532C2A18E7800067F517 /* Infrastructure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Infrastructure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D532E2A18E7800067F517 /* Infrastructure.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Infrastructure.h; sourceTree = "<group>"; };
 		801D53332A18E7800067F517 /* InfrastructureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InfrastructureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D533A2A18E7800067F517 /* InfrastructureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfrastructureTests.swift; sourceTree = "<group>"; };
 		801D534D2A18E7C80067F517 /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D534F2A18E7C80067F517 /* DataLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataLayer.h; sourceTree = "<group>"; };
 		801D53542A18E7C80067F517 /* DataLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D536D2A18E7DC0067F517 /* DomainLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		801D536F2A18E7DC0067F517 /* DomainLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DomainLayer.h; sourceTree = "<group>"; };
 		801D53742A18E7DC0067F517 /* DomainLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		801D53892A18E95A0067F517 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
@@ -321,7 +315,6 @@
 			isa = PBXGroup;
 			children = (
 				806670462A1A60DE0014C1AB /* Infrastructure.xctestplan */,
-				801D532E2A18E7800067F517 /* Infrastructure.h */,
 				801D53892A18E95A0067F517 /* HTTPClient.swift */,
 				801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */,
 			);
@@ -341,7 +334,6 @@
 			children = (
 				806670622A1AAF7D0014C1AB /* Model */,
 				806670472A1A61980014C1AB /* DataLayer.xctestplan */,
-				801D534F2A18E7C80067F517 /* DataLayer.h */,
 				801D538F2A18ECE60067F517 /* APIRoute.swift */,
 				801D538D2A18EC9A0067F517 /* Repository */,
 				801D538E2A18ECAC0067F517 /* Service */,
@@ -369,7 +361,6 @@
 				801D53AB2A1954040067F517 /* Repository */,
 				801D53AE2A19545E0067F517 /* UseCases */,
 				806670482A1A624B0014C1AB /* DomainLayer.xctestplan */,
-				801D536F2A18E7DC0067F517 /* DomainLayer.h */,
 			);
 			path = DomainLayer;
 			sourceTree = "<group>";
@@ -605,7 +596,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801D533C2A18E7800067F517 /* Infrastructure.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,7 +603,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801D535D2A18E7C80067F517 /* DataLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,7 +610,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801D537D2A18E7DC0067F517 /* DomainLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
