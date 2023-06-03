@@ -13,7 +13,10 @@ final class PokemonListUseCaseTests: XCTestCase {
 
     func test_fetchSpecies_succeedOnRepositoryResponse() async {
         let expectedSpeciesList = SpeciesList(count: 1, nextLimit: 5, nextOffset: 5, results: [])
-        let sut = PokemonListUseCase(pokemonRepository: PokemonRepositoryStub(getSpeciesListResponse: .success(expectedSpeciesList)))
+        
+        PokemonRepositoryMock.getSpeciesListResponse = .success(expectedSpeciesList)
+        let repository = PokemonRepositoryMock()
+        let sut = PokemonListUseCase(pokemonRepository: repository)
         let response = await sut.fetchSpecies(limit: 5, offset: 5)
         
         switch response {
@@ -26,7 +29,9 @@ final class PokemonListUseCaseTests: XCTestCase {
     }
     
     func test_fetchSpecies_failsOnAnyRepositoryError() async {
-        let sut = PokemonListUseCase(pokemonRepository: PokemonRepositoryStub(getSpeciesListResponse: .failure(anyNSError())))
+        PokemonRepositoryMock.getSpeciesListResponse = .failure(anyNSError())
+        let repository = PokemonRepositoryMock()
+        let sut = PokemonListUseCase(pokemonRepository: repository)
         let response = await sut.fetchSpecies(limit: 5, offset: 5)
         
         switch response {
@@ -37,25 +42,25 @@ final class PokemonListUseCaseTests: XCTestCase {
             XCTAssertEqual(failure, anyNSError())
         }
     }
+
+}
+
+// MARK: - Helpers
+extension PokemonListUseCaseTests {
     
-    // MARK: - Helper
-    private class PokemonRepositoryStub: PokemonRepositoryProtocol {
-        var getSpeciesListResponse: Result<SpeciesList, Error>
-        
-        init(getSpeciesListResponse: Result<SpeciesList, Error> = .failure(notImplementedError())) {
-            self.getSpeciesListResponse = getSpeciesListResponse
-        }
+    private class PokemonRepositoryMock: PokemonRepositoryProtocol {
+        static var getSpeciesListResponse: Result<SpeciesList, Error> = .failure(notImplementedError())
         
         func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesList, Error> {
-            return getSpeciesListResponse
+            return PokemonRepositoryMock.getSpeciesListResponse
         }
         
         func fetchEvolution(id: String) async -> Result<[DomainLayer.Species], Error> {
-            return .failure(anyNSError())
+            return .failure(notImplementedError())
         }
         
         func getSpeciesDetail(id: String) async -> Result<DomainLayer.SpeciesDetail, Error> {
-            return .failure(anyNSError())
+            return .failure(notImplementedError())
         }
         
     }
