@@ -13,9 +13,8 @@ final class PokemonListUseCaseTests: XCTestCase {
 
     func test_fetchSpecies_succeedOnRepositoryResponse() async {
         let expectedSpeciesList = SpeciesList(count: 1, nextLimit: 5, nextOffset: 5, results: [])
-        
-        PokemonRepositoryMock.getSpeciesListResponse = .success(expectedSpeciesList)
-        let repository = PokemonRepositoryMock()
+        let repository = PokemonRepositoryMock(getSpeciesListResponse: .success(expectedSpeciesList))
+
         let sut = PokemonListUseCase(pokemonRepository: repository)
         let response = await sut.fetchSpecies(limit: 5, offset: 5)
         
@@ -29,8 +28,7 @@ final class PokemonListUseCaseTests: XCTestCase {
     }
     
     func test_fetchSpecies_failsOnAnyRepositoryError() async {
-        PokemonRepositoryMock.getSpeciesListResponse = .failure(anyNSError())
-        let repository = PokemonRepositoryMock()
+        let repository = PokemonRepositoryMock(getSpeciesListResponse: .failure(anyNSError()))
         let sut = PokemonListUseCase(pokemonRepository: repository)
         let response = await sut.fetchSpecies(limit: 5, offset: 5)
         
@@ -49,10 +47,14 @@ final class PokemonListUseCaseTests: XCTestCase {
 extension PokemonListUseCaseTests {
     
     private class PokemonRepositoryMock: PokemonRepositoryProtocol {
-        static var getSpeciesListResponse: Result<SpeciesList, Error> = .failure(notImplementedError())
+        var getSpeciesListResponse: Result<SpeciesList, Error>
+        
+        init(getSpeciesListResponse: Result<SpeciesList, Error>) {
+            self.getSpeciesListResponse = getSpeciesListResponse
+        }
         
         func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesList, Error> {
-            return PokemonRepositoryMock.getSpeciesListResponse
+            return getSpeciesListResponse
         }
         
         func fetchEvolution(id: String) async -> Result<[DomainLayer.Species], Error> {
