@@ -11,50 +11,33 @@ import XCTest
 final class PokemonEvolutionUseCaseTests: XCTestCase {
 
     func test_fetchSpecies_succeedOnGetSpeciesDetailAndFetchEvolutionResponse() async {
+        let expectedResult = [Species(name: "name", id: "id", imageURL: "")]
         let sut: PokemonEvolutionUseCaseProtocol = makeSUT(
             repositoryGetSpeciesDetailsResponse: .success(SpeciesDetail(chainID: "1", color: "blue")),
-            repositoryFetchEvolutionResponse: .success([Species(name: "name", id: "id", imageURL: "")])
+            repositoryFetchEvolutionResponse: .success(expectedResult)
         )
-        let response = await sut.fetchEvolution(id: "1")
-        switch response {
-        case .success(let evolution):
-            XCTAssertEqual(evolution.count, 1)
-            
-        case .failure(let failure as NSError):
-            XCTFail("Expected success, got \(failure) instead")
-        }
+        
+        await expect(sut, toCompleteWith: .success(expectedResult))
     }
     
     func test_fetchSpecies_failsOnGetSpeciesDetailsError() async {
+        let expectedError = anyNSError()
         let sut: PokemonEvolutionUseCaseProtocol = makeSUT(
-            repositoryGetSpeciesDetailsResponse: .failure(anyNSError()),
+            repositoryGetSpeciesDetailsResponse: .failure(expectedError),
             repositoryFetchEvolutionResponse: .success([])
         )
-        let response = await sut.fetchEvolution(id: "1")
         
-        switch response {
-        case .success(let evolution):
-            XCTFail("Expected failure, got \(evolution) instead")
-            
-        case .failure(let failure as NSError):
-            XCTAssertEqual(failure, anyNSError())
-        }
+        await expect(sut, toCompleteWith: .failure(expectedError))
     }
     
     func test_fetchSpecies_failsOnFetchEvolutionError() async {
+        let expectedError = anyNSError()
         let sut: PokemonEvolutionUseCaseProtocol = makeSUT(
             repositoryGetSpeciesDetailsResponse: .success(SpeciesDetail(chainID: "1", color: "blue")),
-            repositoryFetchEvolutionResponse: .failure(anyNSError())
+            repositoryFetchEvolutionResponse: .failure(expectedError)
         )
-        let response = await sut.fetchEvolution(id: "1")
         
-        switch response {
-        case .success(let evolution):
-            XCTFail("Expected failure, got \(evolution) instead")
-            
-        case .failure(let failure as NSError):
-            XCTAssertEqual(failure, anyNSError())
-        }
+        await expect(sut, toCompleteWith: .failure(expectedError))
     }
 
 }
@@ -62,22 +45,44 @@ final class PokemonEvolutionUseCaseTests: XCTestCase {
 // MARK: - Helpers
 extension PokemonEvolutionUseCaseTests {
     
-    func makeSUT(
+    private func makeSUT(
         repositoryGetSpeciesDetailsResponse: Result<SpeciesDetail, Error>,
-        repositoryFetchEvolutionResponse: Result<[Species], Error>
+        repositoryFetchEvolutionResponse: Result<[Species], Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
     ) -> PokemonEvolutionUseCaseProtocol {
         let repository = PokemonRepositoryMock(
             getSpeciesDetailResponse: repositoryGetSpeciesDetailsResponse,
             fetchEvolutionResponse: repositoryFetchEvolutionResponse
         )
         let sut = PokemonEvolutionUseCase(pokemonRepository: repository)
+        trackForMemoryLeaks(sut, file: file, line: line)
         return sut
+    }
+    
+    private func expect(
+        _ sut: PokemonEvolutionUseCaseProtocol,
+        toCompleteWith expectedResult: Result<[Species], Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) async {
+        let receivedResult = await sut.fetchEvolution(id: "1")
+        
+        switch (receivedResult, expectedResult) {
+        case (.success, .success):
+            break
+            
+        case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+            XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+            
+        default:
+            XCTFail("Expected result \(expectedResult), got \(receivedResult) instead", file: file, line: line)
+        }
     }
     
     private class PokemonRepositoryMock: PokemonRepositoryProtocol {
         var getSpeciesDetailResponse: Result<SpeciesDetail, Error>
         var fetchEvolutionResponse: Result<[Species], Error>
-        
         
         init(getSpeciesDetailResponse: Result<SpeciesDetail, Error>, fetchEvolutionResponse: Result<[Species], Error>) {
             self.getSpeciesDetailResponse = getSpeciesDetailResponse

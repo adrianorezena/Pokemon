@@ -27,7 +27,11 @@ final class PokemonDetailsUseCaseTests: XCTestCase {
 // MARK: - Helpers
 extension PokemonDetailsUseCaseTests {
 
-    private func makeSUT(repositoryGetSpeciesDetailsResponse: Result<SpeciesDetail, Error>, file: StaticString = #filePath, line: UInt = #line) -> PokemonDetailsUseCaseProtocol {
+    private func makeSUT(
+        repositoryGetSpeciesDetailsResponse: Result<SpeciesDetail, Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) -> PokemonDetailsUseCaseProtocol {
         let repository = PokemonRepositoryMock(
             getSpeciesDetailResponse: repositoryGetSpeciesDetailsResponse
         )
@@ -37,7 +41,12 @@ extension PokemonDetailsUseCaseTests {
         return sut
     }
 
-    private func expect(_ sut: PokemonDetailsUseCaseProtocol, toCompleteWith expectedResult: Result<SpeciesDetail, Error>, file: StaticString = #filePath, line: UInt = #line) async {
+    private func expect(
+        _ sut: PokemonDetailsUseCaseProtocol,
+        toCompleteWith expectedResult: Result<SpeciesDetail, Error>,
+        file: StaticString = #filePath,
+        line: UInt = #line
+    ) async {
         let receivedResult = await sut.getSpeciesDetail(id: "1")
         
         switch (receivedResult, expectedResult) {
