@@ -62,6 +62,11 @@
 		8066707A2A1B03760014C1AB /* PokemonServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670792A1B03760014C1AB /* PokemonServiceTests.swift */; };
 		80E321612A2B5F82005EF42E /* PokemonEvolutionUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E321602A2B5F82005EF42E /* PokemonEvolutionUseCaseTests.swift */; };
 		80E321632A2BBB04005EF42E /* PokemonDetailsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E321622A2BBB04005EF42E /* PokemonDetailsUseCaseTests.swift */; };
+		80E321662A2BCC93005EF42E /* CoreDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E321652A2BCC93005EF42E /* CoreDataStore.swift */; };
+		80E321692A2BD2EB005EF42E /* Store.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 80E321672A2BD2EB005EF42E /* Store.xcdatamodeld */; };
+		80E3216B2A2BD373005EF42E /* CoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E3216A2A2BD373005EF42E /* CoreDataHelpers.swift */; };
+		80E3216E2A2BD63C005EF42E /* ManagedSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E3216D2A2BD63C005EF42E /* ManagedSpecies.swift */; };
+		80E321712A2BDAD0005EF42E /* SpeciesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E321702A2BDAD0005EF42E /* SpeciesStore.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
@@ -239,6 +244,11 @@
 		8090107D2A1D228400DC5F02 /* CI Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI Tests.xctestplan"; sourceTree = "<group>"; };
 		80E321602A2B5F82005EF42E /* PokemonEvolutionUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonEvolutionUseCaseTests.swift; sourceTree = "<group>"; };
 		80E321622A2BBB04005EF42E /* PokemonDetailsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailsUseCaseTests.swift; sourceTree = "<group>"; };
+		80E321652A2BCC93005EF42E /* CoreDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
+		80E321682A2BD2EB005EF42E /* Store.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Store.xcdatamodel; sourceTree = "<group>"; };
+		80E3216A2A2BD373005EF42E /* CoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
+		80E3216D2A2BD63C005EF42E /* ManagedSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedSpecies.swift; sourceTree = "<group>"; };
+		80E321702A2BDAD0005EF42E /* SpeciesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesStore.swift; sourceTree = "<group>"; };
 		80F9E6722A17C62E002621EC /* Pokemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80F9E6752A17C62E002621EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80F9E6772A17C62E002621EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -322,6 +332,7 @@
 			children = (
 				806670462A1A60DE0014C1AB /* Infrastructure.xctestplan */,
 				801D532E2A18E7800067F517 /* Infrastructure.h */,
+				80E321642A2BCC7F005EF42E /* CoreData */,
 				801D53892A18E95A0067F517 /* HTTPClient.swift */,
 				801D538B2A18E9730067F517 /* URLSessionHTTPClient.swift */,
 			);
@@ -345,6 +356,7 @@
 				801D538F2A18ECE60067F517 /* APIRoute.swift */,
 				801D538D2A18EC9A0067F517 /* Repository */,
 				801D538E2A18ECAC0067F517 /* Service */,
+				80E3216F2A2BD94D005EF42E /* Store */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -543,6 +555,40 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		809981B42A2CC6D500EED506 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		80E321642A2BCC7F005EF42E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				80E3216C2A2BD61B005EF42E /* Model */,
+				80E321652A2BCC93005EF42E /* CoreDataStore.swift */,
+				80E3216A2A2BD373005EF42E /* CoreDataHelpers.swift */,
+				80E321672A2BD2EB005EF42E /* Store.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		80E3216C2A2BD61B005EF42E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				80E3216D2A2BD63C005EF42E /* ManagedSpecies.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		80E3216F2A2BD94D005EF42E /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				80E321702A2BDAD0005EF42E /* SpeciesStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		80F9E6692A17C62E002621EC = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +602,7 @@
 				801D532D2A18E7800067F517 /* Infrastructure */,
 				801D53392A18E7800067F517 /* InfrastructureTests */,
 				80F9E6732A17C62E002621EC /* Products */,
+				809981B42A2CC6D500EED506 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -920,8 +967,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80E3216B2A2BD373005EF42E /* CoreDataHelpers.swift in Sources */,
+				80E321662A2BCC93005EF42E /* CoreDataStore.swift in Sources */,
+				80E3216E2A2BD63C005EF42E /* ManagedSpecies.swift in Sources */,
 				801D538A2A18E95A0067F517 /* HTTPClient.swift in Sources */,
 				801D538C2A18E9730067F517 /* URLSessionHTTPClient.swift in Sources */,
+				80E321692A2BD2EB005EF42E /* Store.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -943,6 +994,7 @@
 				801D53A32A1913B90067F517 /* PokemonRepository.swift in Sources */,
 				8066706C2A1ABCA80014C1AB /* SpeciesDetailResponseMapper.swift in Sources */,
 				801D53902A18ECE60067F517 /* APIRoute.swift in Sources */,
+				80E321712A2BDAD0005EF42E /* SpeciesStore.swift in Sources */,
 				801D53982A19039C0067F517 /* PokemonService.swift in Sources */,
 				806670642A1AAF950014C1AB /* EvolutionResponse.swift in Sources */,
 				806670662A1AAFB80014C1AB /* ChainResponse.swift in Sources */,
@@ -1131,6 +1183,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Infrastructure/$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1169,6 +1222,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "Infrastructure/$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1244,6 +1298,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1282,6 +1337,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1362,6 +1418,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1400,6 +1457,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1765,6 +1823,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		80E321672A2BD2EB005EF42E /* Store.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				80E321682A2BD2EB005EF42E /* Store.xcdatamodel */,
+			);
+			currentVersion = 80E321682A2BD2EB005EF42E /* Store.xcdatamodel */;
+			path = Store.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80F9E66A2A17C62E002621EC /* Project object */;
 }

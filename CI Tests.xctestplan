@@ -9,6 +9,30 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "80F9E6712A17C62E002621EC",
+          "name" : "Pokemon"
+        },
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "801D532B2A18E7800067F517",
+          "name" : "Infrastructure"
+        },
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "801D534C2A18E7C80067F517",
+          "name" : "DataLayer"
+        },
+        {
+          "containerPath" : "container:Pokemon.xcodeproj",
+          "identifier" : "801D536C2A18E7DC0067F517",
+          "name" : "DomainLayer"
+        }
+      ]
+    },
     "testExecutionOrdering" : "random"
   },
   "testTargets" : [

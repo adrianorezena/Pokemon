@@ -13,6 +13,16 @@ final class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
     
+//    private lazy var store: SpeciesStore = {
+//        do {
+//            return try CoreDataStore(storeURL: NSPersistentContainer
+//                .defaultDirectoryURL()
+//                .appendingPathComponent("store.sqlite"))
+//        } catch {
+//
+//        }
+//    }
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
