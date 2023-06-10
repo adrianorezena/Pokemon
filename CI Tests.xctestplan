@@ -48,24 +48,22 @@
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:Pokemon.xcodeproj",
-        "identifier" : "801D53732A18E7DC0067F517",
+        "identifier" : "80F9E6872A17C630002621EC",
+        "name" : "PokemonTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/DomainLayer",
+        "identifier" : "DomainLayerTests",
         "name" : "DomainLayerTests"
       }
     },
     {
-      "parallelizable" : true,
       "target" : {
-        "containerPath" : "container:Pokemon.xcodeproj",
-        "identifier" : "801D53322A18E7800067F517",
-        "name" : "InfrastructureTests"
-      }
-    },
-    {
-      "parallelizable" : true,
-      "target" : {
-        "containerPath" : "container:Pokemon.xcodeproj",
-        "identifier" : "80F9E6872A17C630002621EC",
-        "name" : "PokemonTests"
+        "containerPath" : "container:Packages\/Infra",
+        "identifier" : "InfraTests",
+        "name" : "InfraTests"
       }
     }
   ],
