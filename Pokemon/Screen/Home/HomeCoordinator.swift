@@ -13,6 +13,7 @@ import UIKit
 final class HomeCoordinator: Coordinator {
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    var tabBarController = UITabBarController()
     
     private lazy var store: SpeciesStore = {
         let databasePath = NSPersistentContainer.defaultDirectoryURL().appendingPathComponent("store.sqlite")
@@ -29,7 +30,17 @@ final class HomeCoordinator: Coordinator {
         let vm: HomeViewModel = HomeViewModel(pokemonUseCase: useCase)
         let vc = HomeViewController(viewModel: vm)
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        vc.tabBarItem.title = "Home"
+        vc.tabBarItem.image = UIImage(systemName: "house")
+        
+        let favorites = UIViewController()
+        favorites.tabBarItem.title = "Favorites"
+        favorites.tabBarItem.image = UIImage(systemName: "heart.fill")
+        
+        tabBarController.viewControllers = [vc, favorites]
+        tabBarController.selectedIndex = 0
+        
+        navigationController.pushViewController(tabBarController, animated: false)
     }
     
     func openDetails(species: Species) {
