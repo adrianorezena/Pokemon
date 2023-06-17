@@ -5,14 +5,20 @@
 //  Created by Adriano Rezena on 20/05/23.
 //
 
+import CoreData
 import DomainLayer
 import Foundation
 
 public final class PokemonRepository: PokemonRepositoryProtocol {
     let pokemonService: PokemonServiceProtocol
-    
-    public init(pokemonService: PokemonServiceProtocol = PokemonService()) {
+    let speciesStore: SpeciesStore?
+
+    public init(
+        pokemonService: PokemonServiceProtocol = PokemonService(),
+        speciesStore: SpeciesStore?
+    ) {
         self.pokemonService = pokemonService
+        self.speciesStore = speciesStore
     }
     
     public func getSpeciesList(limit: Int, offset: Int) async -> Result<SpeciesList, Error> {

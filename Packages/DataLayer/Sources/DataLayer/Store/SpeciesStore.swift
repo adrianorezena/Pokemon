@@ -12,7 +12,7 @@ import Foundation
 public protocol SpeciesStore {
     func get(id: String) throws -> Species?
     func save(_ species: Species) throws
-    func delete(_ species: Species)
+    func delete(_ species: Species) throws
 }
 
 extension CoreDataStore: SpeciesStore {
@@ -38,9 +38,14 @@ extension CoreDataStore: SpeciesStore {
         }
     }
     
-    public func delete(_ species: Species) {
-        
+    public func delete(_ species: Species) throws {
+        try performSync { context in
+            Result {
+                if let managed = try ManagedSpecies.get(id: species.id, in: context) {
+                    context.delete(managed)
+                }
+            }
+        }
     }
-    
-    
+
 }

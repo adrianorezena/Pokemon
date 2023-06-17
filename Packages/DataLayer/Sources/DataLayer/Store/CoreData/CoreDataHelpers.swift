@@ -5,8 +5,6 @@
 //  Created by Adriano Rezena on 03/06/23.
 //
 
-import Foundation
-
 import CoreData
 
 extension NSPersistentContainer {
@@ -26,7 +24,7 @@ extension NSPersistentContainer {
 extension NSManagedObjectModel {
     static func with(name: String, in bundle: Bundle) -> NSManagedObjectModel? {
         return bundle
-            .url(forResource: name, withExtension: "momd")
+            .url(forResource: name, withExtension: ".momd")
             .flatMap { NSManagedObjectModel(contentsOf: $0) }
     }
 }

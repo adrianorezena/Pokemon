@@ -104,7 +104,10 @@ final class PokemonRepositoryTests: XCTestCase {
             evolutionResponse: evolutionResponse,
             detailResponse: detailResponse
         )
-        let sut: PokemonRepository = PokemonRepository(pokemonService: service)
+        
+        let storeURL = URL(fileURLWithPath: "/dev/null")
+        let speciesStore = try! CoreDataStore(storeURL: storeURL)
+        let sut: PokemonRepository = PokemonRepository(pokemonService: service, speciesStore: speciesStore)
         
         trackForMemoryLeaks(service, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)

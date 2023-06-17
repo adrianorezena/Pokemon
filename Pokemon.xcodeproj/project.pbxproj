@@ -15,8 +15,8 @@
 		806670512A1A75EB0014C1AB /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670502A1A75EB0014C1AB /* HomeCoordinator.swift */; };
 		806670542A1A78710014C1AB /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670532A1A78710014C1AB /* DetailViewController.swift */; };
 		806670562A1A789B0014C1AB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670552A1A789B0014C1AB /* DetailViewModel.swift */; };
-		80A55C072A34A2D9009EF710 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 80A55C062A34A2D9009EF710 /* DomainLayer */; };
-		80A55C092A34A2E2009EF710 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 80A55C082A34A2E2009EF710 /* DataLayer */; };
+		807164C82A3B2B6100166B40 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 807164C72A3B2B6100166B40 /* DomainLayer */; };
+		807164CA2A3B2B6C00166B40 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 807164C92A3B2B6C00166B40 /* DataLayer */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
@@ -106,9 +106,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80A55C072A34A2D9009EF710 /* DomainLayer in Frameworks */,
+				807164C82A3B2B6100166B40 /* DomainLayer in Frameworks */,
 				806670332A1A37340014C1AB /* Kingfisher in Frameworks */,
-				80A55C092A34A2E2009EF710 /* DataLayer in Frameworks */,
+				807164CA2A3B2B6C00166B40 /* DataLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,8 +381,8 @@
 			name = Pokemon;
 			packageProductDependencies = (
 				806670322A1A37340014C1AB /* Kingfisher */,
-				80A55C062A34A2D9009EF710 /* DomainLayer */,
-				80A55C082A34A2E2009EF710 /* DataLayer */,
+				807164C72A3B2B6100166B40 /* DomainLayer */,
+				807164C92A3B2B6C00166B40 /* DataLayer */,
 			);
 			productName = Pokemon;
 			productReference = 80F9E6722A17C62E002621EC /* Pokemon.app */;
@@ -636,14 +636,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YL3WUNX77R;
+				DEVELOPMENT_TEAM = KB4L93EL6S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -665,14 +665,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = YL3WUNX77R;
+				DEVELOPMENT_TEAM = KB4L93EL6S;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Pokemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -773,11 +773,11 @@
 			package = 806670312A1A37340014C1AB /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
-		80A55C062A34A2D9009EF710 /* DomainLayer */ = {
+		807164C72A3B2B6100166B40 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DomainLayer;
 		};
-		80A55C082A34A2E2009EF710 /* DataLayer */ = {
+		807164C92A3B2B6C00166B40 /* DataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DataLayer;
 		};

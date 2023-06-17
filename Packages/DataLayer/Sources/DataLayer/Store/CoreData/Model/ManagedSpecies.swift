@@ -22,6 +22,10 @@ extension ManagedSpecies {
         return try context.fetch(request).first
     }
     
+    public static func count() -> Int {
+        return 0
+    }
+    
     public static func save(in context: NSManagedObjectContext) throws -> ManagedSpecies {
         ManagedSpecies(context: context)
     }

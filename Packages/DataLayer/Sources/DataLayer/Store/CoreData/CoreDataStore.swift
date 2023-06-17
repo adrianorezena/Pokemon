@@ -10,7 +10,7 @@ import Foundation
 
 public final class CoreDataStore {
     private static let modelName = "Store"
-    private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle(for: CoreDataStore.self))
+    private static let model = NSManagedObjectModel.with(name: modelName, in: Bundle.module)
     
     private let container: NSPersistentContainer
     private let context: NSManagedObjectContext
@@ -40,15 +40,15 @@ public final class CoreDataStore {
         return try result.get()
     }
 
-//    private func cleanUpReferencesToPersistentStores() {
-//        context.performAndWait {
-//            let coordinator = self.container.persistentStoreCoordinator
-//            try? coordinator.persistentStores.forEach(coordinator.remove)
-//        }
-//    }
-//
-//    deinit {
-//        cleanUpReferencesToPersistentStores()
-//    }
+    private func cleanUpReferencesToPersistentStores() {
+        context.performAndWait {
+            let coordinator = self.container.persistentStoreCoordinator
+            try? coordinator.persistentStores.forEach(coordinator.remove)
+        }
+    }
+
+    deinit {
+        cleanUpReferencesToPersistentStores()
+    }
     
 }

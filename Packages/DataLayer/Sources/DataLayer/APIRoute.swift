@@ -34,7 +34,7 @@ enum APIRoute {
                 URLQueryItem(name: "offset", value: String(offset))
             ]
             
-            components.queryItems?.append(contentsOf: queryItems)
+            components.queryItems = queryItems
             
             return components.url
         }
