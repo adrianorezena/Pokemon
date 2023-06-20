@@ -7,6 +7,14 @@
 
 import XCTest
 
+func anyURLString() -> String {
+    "http://url.com"
+}
+
+func anyURL() -> URL {
+    URL(string: anyURLString())!
+}
+
 func anyNSError() -> NSError {
     NSError(domain: "any error", code: 0)
 }

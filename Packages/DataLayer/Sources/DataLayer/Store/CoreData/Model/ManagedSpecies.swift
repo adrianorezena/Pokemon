@@ -22,6 +22,12 @@ extension ManagedSpecies {
         return try context.fetch(request).first
     }
     
+    public static func getAll(in context: NSManagedObjectContext) throws -> [ManagedSpecies] {
+        let request = NSFetchRequest<ManagedSpecies>(entityName: entity().name!)
+        request.returnsObjectsAsFaults = false
+        return try context.fetch(request)
+    }
+    
     public static func count() -> Int {
         return 0
     }

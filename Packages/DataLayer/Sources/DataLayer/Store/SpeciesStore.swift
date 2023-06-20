@@ -11,6 +11,7 @@ import Foundation
 
 public protocol SpeciesStore {
     func get(id: String) throws -> Species?
+    func getAll() throws -> [Species]
     func save(_ species: Species) throws
     func delete(_ species: Species) throws
 }
@@ -21,6 +22,21 @@ extension CoreDataStore: SpeciesStore {
         try performSync { context in
             Result {
                 try ManagedSpecies.get(id: id, in: context).map { Species(name: $0.name, id: $0.id, imageURL: $0.imageURL) }
+            }
+        }
+    }
+    
+    public func getAll() throws -> [Species] {
+        try performSync { context in
+            Result {
+                try ManagedSpecies.getAll(in: context)
+                    .map {
+                        Species(
+                            name: $0.name,
+                            id: $0.id,
+                            imageURL: $0.imageURL
+                        )
+                    }
             }
         }
     }

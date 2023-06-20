@@ -13,23 +13,19 @@ final class HomeViewController: UIViewController {
     weak var coordinator: HomeCoordinator?
     
     private let tableView: UITableView = {
-        let cellPadding: CGFloat = 16
-        let cellHeight: CGFloat = 40
+        let cellPadding: CGFloat = 8
+        let cellHeight: CGFloat = 50
         
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.rowHeight = cellHeight + cellPadding + cellPadding
         tableView.register(HomeCell.self, forCellReuseIdentifier: HomeCell.reuseIdentifier)
+        tableView.separatorStyle = .none
         return tableView
     }()
     
-    private let errorLabel: UILabel = {
-        let label: UILabel = UILabel(frame: .zero)
+    private let errorLabel: ErrorLabel = {
+        let label: ErrorLabel = ErrorLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
-        label.font = .boldSystemFont(ofSize: 16)
-        label.numberOfLines = 0
-        label.textAlignment = .center
         return label
     }()
     
@@ -135,8 +131,8 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HomeCell.reuseIdentifier) as! HomeCell
         let species = viewModel.species[indexPath.row]
-        cell.nameLabel.text = species.name
-        cell.pokemonImageView.setImage(urlString: species.imageURL)
+        cell.configure(species: species, isFavorite: false)
+        cell.delegate = self
         return cell
     }
     
@@ -156,4 +152,10 @@ extension HomeViewController: UITableViewDelegate {
         coordinator?.openDetails(species: species)
     }
     
+}
+
+// MARK: - HomeCellDelegate
+extension HomeViewController: HomeCellDelegate {
+    func onTapFavoriteButton(species: Species, isFavorite: Bool) {
+    }
 }

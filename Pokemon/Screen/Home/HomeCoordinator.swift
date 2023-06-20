@@ -25,9 +25,16 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let repository: PokemonRepository = PokemonRepository(speciesStore: store)
-        let useCase: PokemonListUseCase = PokemonListUseCase(pokemonRepository: repository)
-        let vm: HomeViewModel = HomeViewModel(pokemonUseCase: useCase)
+        let listRepository: PokemonRepository = PokemonRepository(speciesStore: store)
+        let listUseCase: PokemonListUseCase = PokemonListUseCase(pokemonRepository: listRepository)
+        
+        let favoriteRepository: FavoriteRepository = FavoriteRepository(speciesStore: store)
+        let favoriteUseCase: PokemonFavoriteUseCase = PokemonFavoriteUseCase(repository: favoriteRepository)
+            
+        let vm: HomeViewModel = HomeViewModel(
+            pokemonUseCase: listUseCase,
+            favoriteUseCase: favoriteUseCase
+        )
         let vc = HomeViewController(viewModel: vm)
         vc.coordinator = self
         vc.tabBarItem.title = "Home"

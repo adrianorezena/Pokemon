@@ -1,0 +1,33 @@
+{
+  "configurations" : [
+    {
+      "id" : "75E4F990-1015-47F7-9ADE-24D6694ACF1E",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:",
+          "identifier" : "DataLayer",
+          "name" : "DataLayer"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "DataLayerTests",
+        "name" : "DataLayerTests"
+      }
+    }
+  ],
+  "version" : 1
+}

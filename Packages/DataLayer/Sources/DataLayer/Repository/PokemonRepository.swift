@@ -59,10 +59,13 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         case .failure(let failure):
             return .failure(failure)
         }
-        
     }
+
+}
+
+// MARK: - Helper
+extension PokemonRepository {
     
-    // MARK: - Helper
     private func extractBaseEvolution(from objects: [ChainResponse]) -> [SpeciesResponse] {
         var extractedObjects: [SpeciesResponse] = []
         
@@ -73,5 +76,5 @@ public final class PokemonRepository: PokemonRepositoryProtocol {
         
         return extractedObjects
     }
-
+    
 }

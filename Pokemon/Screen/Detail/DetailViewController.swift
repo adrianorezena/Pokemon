@@ -9,14 +9,15 @@ import UIKit
 
 final class DetailViewController: UIViewController {
     let viewModel: DetailViewModelProtocol
-    
+
+    // MARK: - Components
     private let pokemonImageView: AsyncImageView = {
         let imageView = AsyncImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    
+
     private let evolutionLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -25,7 +26,7 @@ final class DetailViewController: UIViewController {
         label.text = "Evolution"
         return label
     }()
-    
+
     private let tableView: UITableView = {
         let cellPadding: CGFloat = 16
         let cellHeight: CGFloat = 40
@@ -37,22 +38,19 @@ final class DetailViewController: UIViewController {
         return tableView
     }()
 
-    private let errorLabel: UILabel = {
-        let label: UILabel = UILabel(frame: .zero)
+    private let errorLabel: ErrorLabel = {
+        let label: ErrorLabel = ErrorLabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
-        label.font = .boldSystemFont(ofSize: 16)
-        label.numberOfLines = 0
-        label.textAlignment = .center
         return label
     }()
-    
+
     private let loadingIndicator: UIActivityIndicatorView = {
         let loadingIndicator = UIActivityIndicatorView(style: .medium)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         return loadingIndicator
     }()
     
+    // MARK: - Initialization
     init(viewModel: DetailViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -62,7 +60,31 @@ final class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+     
+        setupViews()
+        
+        loadingIndicator.startAnimating()
+        
+        viewModel.fetchEvolution { [weak self] in
+            self?.errorLabel.text = ""
+            
+            if let error = self?.viewModel.fetchError {
+                self?.errorLabel.text = error
+            }
+            
+            self?.tableView.reloadData()
+            self?.loadingIndicator.stopAnimating()
+        }
+    }
+
+}
+
+// MARK: - View Setup
+extension DetailViewController {
+    
     private func setupViews() {
         navigationItem.title = viewModel.species.name.uppercased()
         view.backgroundColor = .systemBackground
@@ -129,27 +151,6 @@ final class DetailViewController: UIViewController {
             loadingIndicator.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
         ])
     }
-
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-     
-        setupViews()
-        
-        loadingIndicator.startAnimating()
-        
-        viewModel.fetchEvolution { [weak self] in
-            self?.errorLabel.text = ""
-            
-            if let error = self?.viewModel.fetchError {
-                self?.errorLabel.text = error
-            }
-            
-            self?.tableView.reloadData()
-            self?.loadingIndicator.stopAnimating()
-        }
-    }
-
 }
 
 // MARK: - UITableViewDataSource

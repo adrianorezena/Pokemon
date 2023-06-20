@@ -5,6 +5,7 @@
 //  Created by Adriano Rezena on 20/05/23.
 //
 
+import DomainLayer
 @testable import DataLayer
 import XCTest
 
@@ -91,8 +92,11 @@ final class PokemonRepositoryTests: XCTestCase {
             XCTAssertEqual(failure.localizedDescription, anyNSError().localizedDescription)
         }
     }
+}
+
+// MARK: - Helper
+extension PokemonRepositoryTests {
     
-    // MARK: - Helper
     private func makeSUT(
         listResponse: Result<SpeciesListResponse, Error>? = nil,
         evolutionResponse: Result<EvolutionResponse, Error>? = nil,
@@ -105,9 +109,7 @@ final class PokemonRepositoryTests: XCTestCase {
             detailResponse: detailResponse
         )
         
-        let storeURL = URL(fileURLWithPath: "/dev/null")
-        let speciesStore = try! CoreDataStore(storeURL: storeURL)
-        let sut: PokemonRepository = PokemonRepository(pokemonService: service, speciesStore: speciesStore)
+        let sut: PokemonRepository = PokemonRepository(pokemonService: service, speciesStore: StoreMock())
         
         trackForMemoryLeaks(service, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
@@ -142,5 +144,19 @@ final class PokemonRepositoryTests: XCTestCase {
             detailResponse
         }
     }
-
+    
+    private class StoreMock: SpeciesStore {
+        func get(id: String) throws -> Species? {
+            nil
+        }
+        
+        func getAll() throws -> [DomainLayer.Species] {
+            []
+        }
+        
+        func save(_ species: DomainLayer.Species) throws {}
+        
+        func delete(_ species: DomainLayer.Species) throws {}
+    }
+    
 }

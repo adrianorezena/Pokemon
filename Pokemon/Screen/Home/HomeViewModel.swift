@@ -13,6 +13,9 @@ protocol HomeViewModelProtocol: AnyObject {
     var fetchError: String? { get set }
     func fetchSpecies(completion: @escaping () -> Void)
     func fetchMoreSpecies(completion: @escaping ([Species]) -> Void)
+    func addFavorite(species: Species)
+//    func removeFavorite(species: Species) async throws
+//    func getFavorites() async -> Result<[Species], Error>
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -23,9 +26,14 @@ final class HomeViewModel: HomeViewModelProtocol {
     var offset: Int = 0
     
     let pokemonUseCase: PokemonListUseCaseProtocol
+    let favoriteUseCase: PokemonFavoriteUseCaseProtocol
     
-    init(pokemonUseCase: PokemonListUseCaseProtocol) {
+    init(
+        pokemonUseCase: PokemonListUseCaseProtocol,
+        favoriteUseCase: PokemonFavoriteUseCaseProtocol
+    ) {
         self.pokemonUseCase = pokemonUseCase
+        self.favoriteUseCase = favoriteUseCase
     }
     
     func fetchSpecies(completion: @escaping () -> Void) {
@@ -75,6 +83,17 @@ final class HomeViewModel: HomeViewModelProtocol {
                 }
                 
             }
+        }
+    }
+    
+    func addFavorite(species: Species) {
+        Task {
+            do {
+                try await favoriteUseCase.addFavorite(species: species)
+            } catch {
+                
+            }
+            
         }
     }
     
