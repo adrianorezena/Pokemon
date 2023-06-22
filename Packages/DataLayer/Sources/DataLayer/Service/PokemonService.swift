@@ -28,7 +28,7 @@ public final class PokemonService: PokemonServiceProtocol {
         
         return await withCheckedContinuation { continuation in
             client.execute(url: url) { response in
-                let response: Result<SpeciesListResponse, Error> = self.mapSpeciesListResponse(result: response)
+                let response: Result<SpeciesListResponse, Error> = self.mapResponse(result: response)
                 
                 switch response {
                 case .success(let speciesList):
@@ -48,7 +48,7 @@ public final class PokemonService: PokemonServiceProtocol {
         
         return await withCheckedContinuation { continuation in
             client.execute(url: url) { response in
-                let response: Result<SpeciesDetailResponse, Error> = self.mapSpeciesDetailResponse(result: response)
+                let response: Result<SpeciesDetailResponse, Error> = self.mapResponse(result: response)
                 
                 switch response {
                 case .success(let speciesDetail):
@@ -68,7 +68,7 @@ public final class PokemonService: PokemonServiceProtocol {
         
         return await withCheckedContinuation { continuation in
             client.execute(url: url) { response in
-                let response: Result<EvolutionResponse, Error> = self.mapEvolutionResponse(result: response)
+                let response: Result<EvolutionResponse, Error> = self.mapResponse(result: response)
                 
                 switch response {
                 case .success(let evolution):
@@ -83,11 +83,11 @@ public final class PokemonService: PokemonServiceProtocol {
     }
     
     // MARK: - Helper
-    private func mapEvolutionResponse(result: HTTPClient.HTTPClientResult) -> Result<EvolutionResponse, Error> {
+    private func mapResponse<T: Decodable>(result: HTTPClient.HTTPClientResult) -> Result<T, Error> {
         switch result {
         case let .success((data, _)):
             do {
-                let mappedResponse = try EvolutionResponseMapper.map(data)
+                let mappedResponse = try T.map(data)
                 return .success(mappedResponse)
             } catch {
                 return .failure(error)
@@ -97,35 +97,4 @@ public final class PokemonService: PokemonServiceProtocol {
             return .failure(error)
         }
     }
-    
-    private func mapSpeciesListResponse(result: HTTPClient.HTTPClientResult) -> Result<SpeciesListResponse, Error> {
-        switch result {
-        case let .success((data, _)):
-            do {
-                let mappedResponse = try SpeciesListResponseMapper.map(data)
-                return .success(mappedResponse)
-            } catch {
-                return .failure(error)
-            }
-            
-        case let .failure(error):
-            return .failure(error)
-        }
-    }
-    
-    private func mapSpeciesDetailResponse(result: HTTPClient.HTTPClientResult) -> Result<SpeciesDetailResponse, Error> {
-        switch result {
-        case let .success((data, _)):
-            do {
-                let mappedResponse = try SpeciesDetailResponseMapper.map(data)
-                return .success(mappedResponse)
-            } catch {
-                return .failure(error)
-            }
-            
-        case let .failure(error):
-            return .failure(error)
-        }
-    }
-    
 }

@@ -72,7 +72,7 @@ final class PokemonServiceTests: XCTestCase {
             XCTFail("Expected failure, got \(speciesList) instead")
             
         case .failure(let failure):
-            XCTAssertEqual(failure.localizedDescription, SpeciesListResponseMapper.Error.invalidData.localizedDescription)
+            XCTAssertEqual(failure.localizedDescription, DecodableInvalidData().localizedDescription)
         }
     }
     
@@ -123,7 +123,7 @@ final class PokemonServiceTests: XCTestCase {
             XCTFail("Expected failure, got \(evolution) instead")
             
         case .failure(let failure):
-            XCTAssertEqual(failure.localizedDescription, EvolutionResponseMapper.Error.invalidData.localizedDescription)
+            XCTAssertEqual(failure.localizedDescription, DecodableInvalidData().localizedDescription)
         }
     }
     
@@ -174,7 +174,7 @@ final class PokemonServiceTests: XCTestCase {
             XCTFail("Expected failure, got \(speciesDetail) instead")
             
         case .failure(let failure):
-            XCTAssertEqual(failure.localizedDescription, SpeciesDetailResponseMapper.Error.invalidData.localizedDescription)
+            XCTAssertEqual(failure.localizedDescription, DecodableInvalidData().localizedDescription)
         }
     }
     
