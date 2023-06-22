@@ -18,12 +18,14 @@
 		806670562A1A789B0014C1AB /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806670552A1A789B0014C1AB /* DetailViewModel.swift */; };
 		807164C82A3B2B6100166B40 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 807164C72A3B2B6100166B40 /* DomainLayer */; };
 		807164CA2A3B2B6C00166B40 /* DataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 807164C92A3B2B6C00166B40 /* DataLayer */; };
+		8088E8352A44651300C7E49E /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088E8342A44651300C7E49E /* HomeViewControllerTests.swift */; };
+		8088E8372A44653B00C7E49E /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088E8362A44653B00C7E49E /* HomeViewModelTests.swift */; };
+		8088E8392A4468F600C7E49E /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8088E8382A4468F600C7E49E /* XCTestCase+Extensions.swift */; };
 		80F9E6762A17C62E002621EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6752A17C62E002621EC /* AppDelegate.swift */; };
 		80F9E6782A17C62E002621EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6772A17C62E002621EC /* SceneDelegate.swift */; };
 		80F9E67A2A17C62E002621EC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E6792A17C62E002621EC /* HomeViewController.swift */; };
 		80F9E67F2A17C62F002621EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80F9E67E2A17C62F002621EC /* Assets.xcassets */; };
 		80F9E6822A17C62F002621EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80F9E6802A17C62F002621EC /* LaunchScreen.storyboard */; };
-		80F9E68D2A17C630002621EC /* PokemonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F9E68C2A17C630002621EC /* PokemonTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,10 @@
 		8066706D2A1ABE420014C1AB /* SpeciesDetailResponseMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesDetailResponseMapperTests.swift; sourceTree = "<group>"; };
 		8066706F2A1ABED50014C1AB /* SpeciesDetail+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SpeciesDetail+Stub.swift"; sourceTree = "<group>"; };
 		806670792A1B03760014C1AB /* PokemonServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonServiceTests.swift; sourceTree = "<group>"; };
+		8088E8332A44651300C7E49E /* PokemonTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PokemonTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8088E8342A44651300C7E49E /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		8088E8362A44653B00C7E49E /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		8088E8382A4468F600C7E49E /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		8090107D2A1D228400DC5F02 /* CI Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CI Tests.xctestplan"; sourceTree = "<group>"; };
 		80D3B61E2A2F4E5700E91EFF /* CoreDataHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelpers.swift; sourceTree = "<group>"; };
 		80D3B61F2A2F4E5700E91EFF /* CoreDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStore.swift; sourceTree = "<group>"; };
@@ -100,7 +106,6 @@
 		80F9E6812A17C62F002621EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80F9E6832A17C62F002621EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80F9E6882A17C630002621EC /* PokemonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		80F9E68C2A17C630002621EC /* PokemonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +288,23 @@
 			path = Mapper;
 			sourceTree = "<group>";
 		};
+		8088E8312A4464CC00C7E49E /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8088E8322A4464E100C7E49E /* Home */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		8088E8322A4464E100C7E49E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8088E8342A44651300C7E49E /* HomeViewControllerTests.swift */,
+				8088E8362A44653B00C7E49E /* HomeViewModelTests.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		809981B42A2CC6D500EED506 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,7 +382,9 @@
 		80F9E68B2A17C630002621EC /* PokemonTests */ = {
 			isa = PBXGroup;
 			children = (
-				80F9E68C2A17C630002621EC /* PokemonTests.swift */,
+				8088E8312A4464CC00C7E49E /* Screen */,
+				8088E8382A4468F600C7E49E /* XCTestCase+Extensions.swift */,
+				8088E8332A44651300C7E49E /* PokemonTests-Bridging-Header.h */,
 			);
 			path = PokemonTests;
 			sourceTree = "<group>";
@@ -424,6 +448,7 @@
 					};
 					80F9E6872A17C630002621EC = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1500;
 						TestTargetID = 80F9E6712A17C62E002621EC;
 					};
 				};
@@ -492,7 +517,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80F9E68D2A17C630002621EC /* PokemonTests.swift in Sources */,
+				8088E8352A44651300C7E49E /* HomeViewControllerTests.swift in Sources */,
+				8088E8392A4468F600C7E49E /* XCTestCase+Extensions.swift in Sources */,
+				8088E8372A44653B00C7E49E /* HomeViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,6 +721,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -703,6 +731,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.PokemonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "PokemonTests/PokemonTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";
@@ -713,6 +743,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YL3WUNX77R;
@@ -722,6 +753,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.rezena.test.PokemonTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "PokemonTests/PokemonTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pokemon.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pokemon";

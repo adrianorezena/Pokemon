@@ -79,7 +79,6 @@ public final class PokemonService: PokemonServiceProtocol {
                 }
             }
         }
-
     }
     
     // MARK: - Helper
