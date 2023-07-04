@@ -5,7 +5,6 @@
 //  Created by Adriano Rezena on 20/05/23.
 //
 
-import CoreData
 import DomainLayer
 import Foundation
 
